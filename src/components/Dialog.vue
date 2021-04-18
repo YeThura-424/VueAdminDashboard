@@ -1,13 +1,6 @@
 <template>
-  <el-dialog
-    v-model="centerDialogVisible"
-    :close-on-press-escape="false"
-    :close-on-click-modal="false"
-    :title="title"
-    :width="$props.width"
-    align-center
-    @close="hide"
-  >
+  <el-dialog v-model="centerDialogVisible" :close-on-press-escape="false" :close-on-click-modal="false" :title="title"
+    :width="width" align-center @close="hide">
     <slot name="body"></slot>
     <template #footer>
       <div class="dialog-footer">
@@ -39,7 +32,7 @@ const props = defineProps({
 });
 watch(
   () => props.show,
-  (newValue, oldValue) => {
+  (newValue) => {
     centerDialogVisible.value = newValue;
   }
 );
