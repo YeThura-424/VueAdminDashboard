@@ -14,6 +14,12 @@
   height: 100vh;
   /* padding: 20px; */
 }
+.layout-expand {
+  position: absolute;
+  width: calc(100vw - 64px);
+  right: 0;
+  height: 100vh;
+}
 .example-showcase .el-dropdown-link {
   cursor: pointer;
   color: var(--el-color-primary);
