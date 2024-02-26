@@ -32,7 +32,7 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import { ArrowDown, Search } from "@element-plus/icons-vue";
+import { Search } from "@element-plus/icons-vue";
 
 const input2 = ref("");
 </script>

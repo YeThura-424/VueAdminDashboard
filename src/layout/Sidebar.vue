@@ -2,15 +2,21 @@
   <el-menu
     default-active="2"
     class="el-menu-vertical-demo"
-    :collapse="isCollapse"
+    :collapse="appLayout.isCollapse"
     @open="handleOpen"
     @close="handleClose"
   >
-    <div class="sidebar-header flex items-center justify-between">
-      <div class="logo" :class="{ hidden: isCollapse }">
+    <div
+      class="sidebar-header flex items-center h-12 border-b border-slate-300 px-2"
+      :class="appLayout.isCollapse ? 'justify-center' : 'justify-between'"
+    >
+      <div class="logo" :class="{ hidden: appLayout.isCollapse }">
         <span class="app-logo"> Vue Admin Template </span>
       </div>
-      <div class="toggler cursor-pointer" @click="isCollapse = !isCollapse">
+      <div
+        class="toggler cursor-pointer"
+        @click="appLayout.toggleSidebar(!appLayout.isCollapse)"
+      >
         <el-icon><Expand /></el-icon>
       </div>
     </div>
@@ -48,9 +54,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
 import { Expand } from "@element-plus/icons-vue";
-
+import { useAppLayoutStore } from "../store/AppLayout.js";
 import {
   Document,
   Menu as IconMenu,
@@ -58,7 +63,7 @@ import {
   Setting,
 } from "@element-plus/icons-vue";
 
-const isCollapse = ref(false);
+const appLayout = useAppLayoutStore();
 const handleOpen = (key: string, keyPath: string[]) => {
   console.log(key, keyPath);
 };
