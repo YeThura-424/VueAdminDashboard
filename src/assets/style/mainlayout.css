@@ -1,0 +1,26 @@
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  position: absolute;
+}
+.layout {
+  position: absolute;
+  width: calc(100vw - 250px);
+  right: 0;
+  height: 100vh;
+}
+.layout-expand {
+  position: absolute;
+  width: calc(100vw - 64px);
+  right: 0;
+  height: 100vh;
+}
+.example-showcase .el-dropdown-link {
+  cursor: pointer;
+  color: var(--el-color-primary);
+  display: flex;
+  align-items: center;
+}
+.nav-header {
+  box-shadow: 2px 1px 3px #ddd;
+}
