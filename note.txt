@@ -12,4 +12,7 @@
       </el-sub-menu>
     </el-sub-menu>
     <el-menu-item index="3" disabled>Info</el-menu-item>
-    
+    <router-link :to="{ name: 'Dashboard' }">
+        <el-icon><location /></el-icon>
+        <template #title>Dashboard</template>
+      </router-link>

@@ -22,6 +22,9 @@
   right: 0;
   height: 100vh;
 }
+.main-contant {
+  padding: 20px;
+}
 .example-showcase .el-dropdown-link {
   cursor: pointer;
   color: var(--el-color-primary);

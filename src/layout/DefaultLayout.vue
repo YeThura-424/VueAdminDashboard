@@ -7,7 +7,7 @@
       <div class="nav-header">
         <Header />
       </div>
-      <div class="contant">
+      <div class="main-contant">
         <router-view></router-view>
       </div>
     </div>
