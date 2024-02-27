@@ -2,6 +2,13 @@
   width: 250px;
   height: 100vh;
   position: absolute;
+  background-color: var(--content-color);
+}
+.sidebar.sidebar-collapse {
+  width: 64px;
+}
+.el-menu {
+  border: none !important;
 }
 .layout {
   position: absolute;
@@ -22,5 +29,5 @@
   align-items: center;
 }
 .nav-header {
-  box-shadow: 2px 1px 3px #ddd;
+  background-color: var(--content-color);
 }

@@ -1,13 +1,15 @@
 <template>
   <div class="main_container flex absolute w-full h-full">
-    <div class="sidebar">
+    <div :class="appLayout.isCollapse ? 'sidebar sidebar-collapse' : 'sidebar'">
       <Sidebar />
     </div>
     <div :class="appLayout.isCollapse ? 'layout-expand' : 'layout'">
       <div class="nav-header">
         <Header />
       </div>
-      <div class="contant"></div>
+      <div class="contant">
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>
