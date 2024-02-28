@@ -34,15 +34,19 @@
 .nav-header {
   background-color: var(--content-color);
 }
-.nav-link-wrapper {
-  padding: 10px 15px;
+
+a.nav-link {
+  display: block;
+  min-width: 100%;
 }
-li.el-menu-item {
-  font-size: 16px;
+li.el-menu-item,
+li.el-sub-menu {
+  font-size: 18px;
   height: var(--el-menu-line-height);
   line-height: var(--el-menu-line-height) !important;
-  padding-left: 5px !important;
-  margin-bottom: 5px;
+  padding-inline: 5px !important;
+  margin-inline: 10px;
+  margin-block: 5px;
   transition: padding 0.2s ease-in;
 }
 li.el-menu-item:hover {
@@ -54,4 +58,7 @@ li.el-menu-item.is-active {
   background-color: var(--primary-color);
   color: white;
   border-radius: 7px;
+}
+.el-menu-item .el-menu-tooltip__trigger {
+  justify-content: center;
 }

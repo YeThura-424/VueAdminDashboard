@@ -22,18 +22,32 @@
       <el-menu-item index="Dashboard">
         <el-icon><icon-menu /></el-icon>
         <template #title>
-          <router-link :to="{ name: 'Dashboard' }">Dashboard</router-link>
+          <router-link class="nav-link" :to="{ name: 'Dashboard' }"
+            >Dashboard</router-link
+          >
         </template>
       </el-menu-item>
 
       <el-menu-item index="Product">
         <el-icon><icon-menu /></el-icon>
         <template #title
-          ><router-link :to="{ name: 'Product' }"
+          ><router-link class="nav-link" :to="{ name: 'Product' }"
             >Product</router-link
           ></template
         >
       </el-menu-item>
+
+      <el-sub-menu index="1">
+        <template #title>
+          <el-icon><location /></el-icon>
+          <span>Navigator One</span>
+        </template>
+        <el-menu-item-group>
+          <el-menu-item index="1-1">item one</el-menu-item>
+          <el-menu-item index="1-2">item two</el-menu-item>
+          <el-menu-item index="1-3">item three</el-menu-item>
+        </el-menu-item-group>
+      </el-sub-menu>
     </div>
   </el-menu>
 </template>
@@ -41,7 +55,7 @@
 <script lang="ts" setup>
 import { Expand } from "@element-plus/icons-vue";
 import { useAppLayoutStore } from "../store/AppLayout.js";
-import { Menu as IconMenu } from "@element-plus/icons-vue";
+import { Menu as IconMenu, Location } from "@element-plus/icons-vue";
 import { useRoute } from "vue-router";
 
 const router = useRoute();
