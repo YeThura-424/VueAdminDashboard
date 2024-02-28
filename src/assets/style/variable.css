@@ -1,4 +1,6 @@
 :root {
   --body-color: #ddd;
   --content-color: #fff;
+  --primary-color: #7367f0;
+  --el-menu-line-height: 45px;
 }

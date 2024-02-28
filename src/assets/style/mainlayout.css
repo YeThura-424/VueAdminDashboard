@@ -34,3 +34,24 @@
 .nav-header {
   background-color: var(--content-color);
 }
+.nav-link-wrapper {
+  padding: 10px 15px;
+}
+li.el-menu-item {
+  font-size: 16px;
+  height: var(--el-menu-line-height);
+  line-height: var(--el-menu-line-height) !important;
+  padding-left: 5px !important;
+  margin-bottom: 5px;
+  transition: padding 0.2s ease-in;
+}
+li.el-menu-item:hover {
+  background-color: #f0f0f0;
+  border-radius: 7px;
+  padding-left: 10px !important;
+}
+li.el-menu-item.is-active {
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 7px;
+}

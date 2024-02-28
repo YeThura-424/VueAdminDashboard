@@ -1,10 +1,8 @@
 <template>
   <el-menu
-    default-active="2"
+    :default-active="activeLink"
     class="el-menu-vertical-demo"
     :collapse="appLayout.isCollapse"
-    @open="handleOpen"
-    @close="handleClose"
   >
     <div
       class="sidebar-header flex items-center h-12 border-b border-slate-300 px-2"
@@ -20,46 +18,35 @@
         <el-icon><Expand /></el-icon>
       </div>
     </div>
-    <router-link :to="{ name: 'Dashboard' }">
-      <el-menu-item index="1">
+    <div class="nav-link-wrapper">
+      <el-menu-item index="Dashboard">
         <el-icon><icon-menu /></el-icon>
-        <template #title>Dashboard</template>
+        <template #title>
+          <router-link :to="{ name: 'Dashboard' }">Dashboard</router-link>
+        </template>
       </el-menu-item>
-    </router-link>
-    <router-link :to="{ name: 'Product' }">
-      <el-menu-item index="2">
+
+      <el-menu-item index="Product">
         <el-icon><icon-menu /></el-icon>
-        <template #title>Product</template>
+        <template #title
+          ><router-link :to="{ name: 'Product' }"
+            >Product</router-link
+          ></template
+        >
       </el-menu-item>
-    </router-link>
-    <el-menu-item index="3">
-      <el-icon><document /></el-icon>
-      <template #title>Navigator Three</template>
-    </el-menu-item>
-    <el-menu-item index="4">
-      <el-icon><setting /></el-icon>
-      <template #title>Navigator Four</template>
-    </el-menu-item>
+    </div>
   </el-menu>
 </template>
 
 <script lang="ts" setup>
 import { Expand } from "@element-plus/icons-vue";
 import { useAppLayoutStore } from "../store/AppLayout.js";
-import {
-  Document,
-  Menu as IconMenu,
-  Location,
-  Setting,
-} from "@element-plus/icons-vue";
+import { Menu as IconMenu } from "@element-plus/icons-vue";
+import { useRoute } from "vue-router";
 
+const router = useRoute();
 const appLayout = useAppLayoutStore();
-const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath);
-};
-const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath);
-};
+const activeLink = router.name;
 </script>
 
 <style>
