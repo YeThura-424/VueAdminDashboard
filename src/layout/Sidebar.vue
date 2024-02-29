@@ -18,37 +18,33 @@
         <el-icon><Expand /></el-icon>
       </div>
     </div>
-    <div class="nav-link-wrapper">
-      <el-menu-item index="Dashboard">
-        <el-icon><icon-menu /></el-icon>
-        <template #title>
-          <router-link class="nav-link" :to="{ name: 'Dashboard' }"
-            >Dashboard</router-link
-          >
-        </template>
-      </el-menu-item>
 
-      <el-menu-item index="Product">
-        <el-icon><icon-menu /></el-icon>
-        <template #title
-          ><router-link class="nav-link" :to="{ name: 'Product' }"
-            >Product</router-link
-          ></template
+    <el-menu-item index="Dashboard">
+      <el-icon><icon-menu /></el-icon>
+      <template #title>
+        <router-link class="nav-link" :to="{ name: 'Dashboard' }"
+          >Dashboard</router-link
         >
-      </el-menu-item>
+      </template>
+    </el-menu-item>
 
-      <el-sub-menu index="1">
-        <template #title>
-          <el-icon><location /></el-icon>
-          <span>Navigator One</span>
-        </template>
-        <el-menu-item-group>
-          <el-menu-item index="1-1">item one</el-menu-item>
-          <el-menu-item index="1-2">item two</el-menu-item>
-          <el-menu-item index="1-3">item three</el-menu-item>
-        </el-menu-item-group>
-      </el-sub-menu>
-    </div>
+    <el-menu-item index="Product">
+      <el-icon><icon-menu /></el-icon>
+      <template #title
+        ><router-link class="nav-link" :to="{ name: 'Product' }"
+          >Product</router-link
+        ></template
+      >
+    </el-menu-item>
+
+    <el-sub-menu index="User">
+      <template #title>
+        <el-icon><location /></el-icon>
+        <span>User</span>
+      </template>
+      <el-menu-item index="User-Create">item one</el-menu-item>
+      <el-menu-item index="User-List">item two</el-menu-item>
+    </el-sub-menu>
   </el-menu>
 </template>
 
