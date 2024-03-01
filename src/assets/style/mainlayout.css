@@ -65,3 +65,12 @@ li.el-sub-menu.is-active .el-sub-menu__title {
   background-color: #e7e5e5 !important;
   border-radius: 7px;
 }
+.el-page-header__breadcrumb {
+  margin-bottom: 10px !important;
+}
+.el-page-header.el-page-header--has-breadcrumb {
+  background: #fff;
+  padding: 10px 15px;
+  border-radius: 7px;
+  box-shadow: 1px 3px 2px #aaa;
+}

@@ -42,11 +42,12 @@
         <el-icon><location /></el-icon>
         <span>User</span>
       </template>
-      <el-menu-item index="User-Create">
-        <el-icon><HelpFilled /></el-icon>item one</el-menu-item
-      >
+      <el-menu-item index="UserList">
+        <el-icon><HelpFilled /></el-icon>
+        <router-link :to="{ name: 'UserList' }">List</router-link>
+      </el-menu-item>
       <el-menu-item index="User-List"
-        ><el-icon><HelpFilled /></el-icon>item two</el-menu-item
+        ><el-icon><HelpFilled /></el-icon>Create</el-menu-item
       >
     </el-sub-menu>
   </el-menu>
