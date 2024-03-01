@@ -42,8 +42,12 @@
         <el-icon><location /></el-icon>
         <span>User</span>
       </template>
-      <el-menu-item index="User-Create">item one</el-menu-item>
-      <el-menu-item index="User-List">item two</el-menu-item>
+      <el-menu-item index="User-Create">
+        <el-icon><HelpFilled /></el-icon>item one</el-menu-item
+      >
+      <el-menu-item index="User-List"
+        ><el-icon><HelpFilled /></el-icon>item two</el-menu-item
+      >
     </el-sub-menu>
   </el-menu>
 </template>
@@ -51,9 +55,12 @@
 <script lang="ts" setup>
 import { Expand } from "@element-plus/icons-vue";
 import { useAppLayoutStore } from "../store/AppLayout.js";
-import { Menu as IconMenu, Location } from "@element-plus/icons-vue";
+import {
+  Menu as IconMenu,
+  Location,
+  HelpFilled,
+} from "@element-plus/icons-vue";
 import { useRoute } from "vue-router";
-
 const router = useRoute();
 const appLayout = useAppLayoutStore();
 const activeLink = router.name;
