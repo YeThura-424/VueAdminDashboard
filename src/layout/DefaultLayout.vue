@@ -8,7 +8,11 @@
         <Header />
       </div>
       <div class="main-contant">
-        <router-view></router-view>
+        <router-view v-slot="{ Component }">
+          <transition name="fade" mode="out-in">
+            <component :is="Component" />
+          </transition>
+        </router-view>
       </div>
     </div>
   </div>
@@ -20,3 +24,14 @@ import { useAppLayoutStore } from "../store/AppLayout.js";
 
 const appLayout = useAppLayoutStore();
 </script>
+<style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

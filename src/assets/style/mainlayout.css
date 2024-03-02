@@ -50,6 +50,13 @@ li.el-menu-item,
   transition: padding 0.2s ease-in !important;
 }
 
+.el-menu--collapse .el-sub-menu.is-active .el-sub-menu__title {
+  color: var(--el-menu-active-color);
+}
+.el-menu--collapse .el-sub-menu.is-active .el-sub-menu__title {
+  color: #000 !important;
+}
+
 li.el-menu-item:hover,
 .el-sub-menu__title:hover {
   background-color: #f0f0f0 !important;
@@ -60,6 +67,13 @@ li.el-menu-item.is-active {
   background-color: var(--primary-color) !important;
   color: white !important;
   border-radius: 7px;
+}
+.el-menu-item .el-menu-tooltip__trigger {
+  justify-content: center;
+}
+.el-sub-menu__title.el-tooltip__trigger.el-tooltip__trigger {
+  justify-content: center;
+  padding-left: 0 !important;
 }
 li.el-sub-menu.is-active .el-sub-menu__title {
   background-color: #e7e5e5 !important;

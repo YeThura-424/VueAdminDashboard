@@ -29,7 +29,7 @@
     </el-menu-item>
 
     <el-menu-item index="Product">
-      <el-icon><icon-menu /></el-icon>
+      <el-icon><Goods /></el-icon>
       <template #title
         ><router-link class="nav-link" :to="{ name: 'Product' }"
           >Product</router-link
@@ -39,12 +39,14 @@
 
     <el-sub-menu index="User">
       <template #title>
-        <el-icon><location /></el-icon>
+        <el-icon><User /></el-icon>
         <span>User</span>
       </template>
       <el-menu-item index="UserList">
         <el-icon><HelpFilled /></el-icon>
-        <router-link :to="{ name: 'UserList' }">List</router-link>
+        <router-link :to="{ name: 'UserList' }" class="nav-link"
+          >List</router-link
+        >
       </el-menu-item>
       <el-menu-item index="User-List"
         ><el-icon><HelpFilled /></el-icon>Create</el-menu-item
@@ -58,8 +60,9 @@ import { Expand } from "@element-plus/icons-vue";
 import { useAppLayoutStore } from "../store/AppLayout.js";
 import {
   Menu as IconMenu,
-  Location,
+  User,
   HelpFilled,
+  Goods,
 } from "@element-plus/icons-vue";
 import { useRoute } from "vue-router";
 const router = useRoute();
