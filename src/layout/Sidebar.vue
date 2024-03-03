@@ -49,8 +49,11 @@
         >
       </el-menu-item>
       <el-menu-item index="User-List"
-        ><el-icon><HelpFilled /></el-icon>Create</el-menu-item
-      >
+        ><el-icon><HelpFilled /></el-icon>
+        <router-link :to="{ name: 'UserAdd' }" class="nav-link"
+          >Create</router-link
+        >
+      </el-menu-item>
     </el-sub-menu>
   </el-menu>
 </template>
@@ -73,5 +76,6 @@ const activeLink = router.name;
 <style>
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   height: 100vh;
+  width: 250px;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="main-section">
     <div class="header-section">
-      <PageHeader />
+      <PageHeader :breadcrumbs="userListBreadcrumb" title="User List" />
     </div>
     <div class="content-section mt-6">
       <div class="table-container">
@@ -93,7 +93,37 @@ const filterTableData = computed(() =>
     );
   })
 );
+const userListBreadcrumb = [
+  {
+    name: "Home",
+    routeName: "Dashboard",
+  },
+  {
+    name: "User-List",
+    routeName: "",
+  },
+];
 const tableData = [
+  {
+    date: "2016-05-03",
+    name: "Tom",
+    address: "No. 189, Grove St, Los Angeles",
+  },
+  {
+    date: "2016-05-02",
+    name: "Jerry",
+    address: "No. 189, Stren St, Los Angeles",
+  },
+  {
+    date: "2016-05-04",
+    name: "Fin",
+    address: "No. 189, Wooden St, New York",
+  },
+  {
+    date: "2016-05-01",
+    name: "Ryan",
+    address: "No. 189, Grove St, Califonia",
+  },
   {
     date: "2016-05-03",
     name: "Tom",
