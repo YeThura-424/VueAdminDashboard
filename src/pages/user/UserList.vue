@@ -5,9 +5,22 @@
     </div>
     <div class="content-section mt-6">
       <div class="table-container">
-        <div class="table-search-action flex justify-between">
+        <div class="table-search-action flex justify-between items-center">
           <div class="actions">
             <el-button type="primary" :icon="CirclePlus">Add User</el-button>
+          </div>
+          <div class="total-entries">
+            <span class="pr-2">Show</span>
+            <el-select
+              v-model="tableEntriesCount"
+              placeholder="Select"
+              style="width: 60px"
+            >
+              <el-option value="10" selected label="10" />
+              <el-option value="20" label="20" />
+              <el-option value="30" label="30" />
+            </el-select>
+            <span class="pl-2">Entries</span>
           </div>
           <div class="search">
             <el-input
@@ -45,8 +58,16 @@
             </template>
           </el-table-column>
         </el-table>
-        <div class="table-peginator pt-6 flex justify-end">
-          <el-pagination background layout="prev, pager, next" :total="50" />
+        <div class="tableFooter flex justify-between items-center py-4">
+          <div class="total-table-data">Showing 1 to 5 of 5 entries</div>
+
+          <div class="table-peginator">
+            <el-pagination
+              background
+              layout="prev, pager, next"
+              :total="tableData.length"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -59,12 +80,18 @@ import { Search, CirclePlus } from "@element-plus/icons-vue";
 import { ref, computed } from "vue";
 
 const userSearchList = ref();
+const tableEntriesCount = ref(10);
 const filterTableData = computed(() =>
-  tableData.filter(
-    (data) =>
-      !userSearchList.value ||
-      data.name.toLowerCase().includes(userSearchList.value.toLowerCase())
-  )
+  tableData.filter((data) => {
+    // convert user typed value to lower case
+    const searchValue = userSearchList.value
+      ? userSearchList.value.toLowerCase()
+      : "";
+    // check if any column in the data matchs user typed value
+    return Object.values(data).some((value) =>
+      value.toLowerCase().includes(searchValue)
+    );
+  })
 );
 const tableData = [
   {
