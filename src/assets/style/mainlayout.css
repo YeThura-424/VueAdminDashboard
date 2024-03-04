@@ -22,13 +22,11 @@
   width: calc(100vw - 64px);
   right: 0;
   height: 100vh;
-  overflow-y: scroll !important;
 }
 .main-contant {
   padding: 20px;
   position: absolute;
   top: 48px;
-  width: inherit;
 }
 .example-showcase .el-dropdown-link {
   cursor: pointer;
