@@ -98,7 +98,8 @@ li.el-sub-menu.is-active .el-sub-menu__title {
 }
 .content-section,
 .user-info,
-.user-address {
+.user-address,
+.user-login {
   background-color: #fff;
   box-shadow: 1px 3px 2px #aaa;
   padding: 10px 15px;

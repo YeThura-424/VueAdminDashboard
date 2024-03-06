@@ -7,7 +7,9 @@
       <div class="table-container">
         <div class="table-search-action flex justify-between items-center">
           <div class="actions">
-            <el-button type="primary" :icon="CirclePlus">Add User</el-button>
+            <el-button type="primary" :icon="CirclePlus" @click="addUser"
+              >Add User</el-button
+            >
           </div>
           <div class="total-entries">
             <span class="pr-2">Show</span>
@@ -78,9 +80,12 @@
 import PageHeader from "../../components/PageHeader.vue";
 import { Search, CirclePlus } from "@element-plus/icons-vue";
 import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 const userSearchList = ref();
 const tableEntriesCount = ref(10);
+// table data search function
 const filterTableData = computed(() =>
   tableData.filter((data) => {
     // convert user typed value to lower case
@@ -93,6 +98,12 @@ const filterTableData = computed(() =>
     );
   })
 );
+
+const addUser = () => {
+  router.push({
+    name: "UserAdd",
+  });
+};
 const userListBreadcrumb = [
   {
     name: "Home",
