@@ -28,15 +28,24 @@
       </template>
     </el-menu-item>
 
-    <el-menu-item index="Product">
-      <el-icon><Goods /></el-icon>
-      <template #title
-        ><router-link class="nav-link" :to="{ name: 'Product' }"
-          >Product</router-link
-        ></template
-      >
-    </el-menu-item>
-
+    <el-sub-menu index="Product">
+      <template #title>
+        <el-icon><Goods /></el-icon>
+        <span>Product</span>
+      </template>
+      <el-menu-item index="ProductList">
+        <el-icon><HelpFilled /></el-icon>
+        <router-link :to="{ name: 'ProductList' }" class="nav-link"
+          >List</router-link
+        >
+      </el-menu-item>
+      <el-menu-item index="ProductAdd"
+        ><el-icon><HelpFilled /></el-icon>
+        <router-link :to="{ name: 'ProductAdd' }" class="nav-link"
+          >Create</router-link
+        >
+      </el-menu-item>
+    </el-sub-menu>
     <el-sub-menu index="User">
       <template #title>
         <el-icon><User /></el-icon>

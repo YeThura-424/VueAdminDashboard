@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import DefaultLayout from "../layout/DefaultLayout.vue";
 import Dashboard from "../pages/Dashboard.vue";
-import Product from "../pages/Product.vue";
+import ProductList from "../pages/product/ProductList.vue";
+import ProductAdd from "../pages/product/ProductAdd.vue";
 import UserList from "../pages/user/UserList.vue";
 import UserAdd from "../pages/user/UserAdd.vue";
 const router = createRouter({
@@ -13,7 +14,8 @@ const router = createRouter({
       component: DefaultLayout,
       children: [
         { path: "/dashboard", name: "Dashboard", component: Dashboard },
-        { path: "/product", name: "Product", component: Product },
+        { path: "/productlist", name: "ProductList", component: ProductList },
+        { path: "/product/add", name: "ProductAdd", component: ProductAdd },
         { path: "/userlist", name: "UserList", component: UserList },
         { path: "/user/add", name: "UserAdd", component: UserAdd },
       ],
