@@ -40,9 +40,11 @@
           stripe
           table-layout="fixed"
         >
-          <el-table-column prop="date" label="Date" width="180" />
-          <el-table-column prop="name" label="Name" width="180" />
-          <el-table-column prop="address" label="Address" />
+          <el-table-column prop="firstname" label="Name" />
+          <el-table-column prop="email" label="Email" />
+          <el-table-column prop="phone" label="Phone" />
+          <el-table-column prop="education" label="Education" />
+          <el-table-column prop="street" label="Street" />
           <el-table-column>
             <template #header> Actions </template>
             <template #default="scope">
@@ -61,13 +63,17 @@
           </el-table-column>
         </el-table>
         <div class="tableFooter flex justify-between items-center py-4">
-          <div class="total-table-data">Showing 1 to 5 of 5 entries</div>
+          <div class="total-table-data">
+            Showing 1 to {{ Users.length }} of 5 entries
+          </div>
 
           <div class="table-peginator">
             <el-pagination
               background
               layout="prev, pager, next"
-              :total="tableData.length"
+              :page-size="10"
+              :pager-count="5"
+              :total="Users.length"
             />
           </div>
         </div>
@@ -81,13 +87,14 @@ import PageHeader from "../../components/PageHeader.vue";
 import { Search, CirclePlus } from "@element-plus/icons-vue";
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
+import Users from "../../dummy/user.js";
 
 const router = useRouter();
 const userSearchList = ref();
 const tableEntriesCount = ref(10);
 // table data search function
 const filterTableData = computed(() =>
-  tableData.filter((data) => {
+  Users.filter((data) => {
     // convert user typed value to lower case
     const searchValue = userSearchList.value
       ? userSearchList.value.toLowerCase()
