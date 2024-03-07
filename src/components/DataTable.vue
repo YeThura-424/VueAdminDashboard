@@ -35,22 +35,19 @@
       stripe
       table-layout="fixed"
     >
-      <el-table-column prop="firstname" label="Name" />
-      <el-table-column prop="email" label="Email" />
-      <el-table-column prop="phone" label="Phone" />
-      <el-table-column prop="education" label="Education" />
-      <el-table-column prop="street" label="Street" />
-      <el-table-column>
+      <el-table-column
+        v-for="header in props.tableFormat.headers"
+        :prop="header.tableValue"
+        :label="header.label"
+      />
+      <el-table-column v-if="props.tableFormat.action.length > 0">
         <template #header> Actions </template>
         <template #default="scope">
-          <el-button size="small" @click="handleEdit(scope.$index, scope.row)"
-            >Edit</el-button
-          >
           <el-button
+            v-for="buttonAction in props.tableFormat.action"
             size="small"
-            type="danger"
-            @click="handleDelete(scope.$index, scope.row)"
-            >Delete</el-button
+            :type="buttonAction.type"
+            >{{ buttonAction.name }}</el-button
           >
         </template>
       </el-table-column>
@@ -89,8 +86,8 @@ const props = defineProps({
     required: true,
   },
   tableFormat: {
-    type: String,
-    required: false,
+    type: Object,
+    required: true,
   },
 });
 // table data search function
