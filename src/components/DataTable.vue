@@ -9,10 +9,11 @@
       <div class="total-entries">
         <span class="pr-2">Show</span>
         <el-select v-model="pageSize" placeholder="Select" style="width: 60px">
-          <el-option value="5" label="5" />
-          <el-option value="10" selected label="10" />
-          <el-option value="20" label="20" />
-          <el-option value="30" label="30" />
+          <!-- to get the value as number (:value) -->
+          <el-option :value="5" label="5" />
+          <el-option :value="10" label="10" />
+          <el-option :value="20" label="20" />
+          <el-option :value="30" label="30" />
         </el-select>
         <span class="pl-2">Entries</span>
       </div>
@@ -58,11 +59,13 @@
       <div class="table-peginator">
         <el-pagination
           background
-          layout="prev, pager, next"
-          :page-size="pageSize"
+          v-model:page-size="pageSize"
           v-model:current-page="currentPage"
+          layout="prev, pager, next"
           :pager-count="5"
           :total="props.tableData.length"
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
         />
       </div>
     </div>
@@ -98,15 +101,19 @@ const endIndex = computed(() =>
 );
 const currentPageData = computed(() => {
   // Filter the table data based on the search value
-  const filteredData = props.tableData.filter((data) => {
+  const filteredData = props.tableData.filter((data: any) => {
     // Convert user typed value to lower case
     const searchValue = userSearchList.value
       ? userSearchList.value.toLowerCase()
       : "";
     // Check if any column in the data matches the user typed value
-    return Object.values(data).some((value) =>
-      value.toLowerCase().includes(searchValue)
-    );
+    return Object.values(data).some((value) => {
+      if (typeof value === "string") {
+        return value.toLowerCase().includes(searchValue);
+      }
+      // If value is not a string, return false
+      return false;
+    });
   });
 
   // Calculate the start and end index based on the current page and page size
@@ -116,7 +123,12 @@ const currentPageData = computed(() => {
   // Return the sliced data based on pagination
   return filteredData.slice(start, end);
 });
-
+const handleSizeChange = (pageSize: number) => {
+  pageSize = pageSize;
+};
+const handleCurrentChange = (currentPage: number) => {
+  currentPage = currentPage;
+};
 const addUser = () => {
   router.push({
     name: "UserAdd",
