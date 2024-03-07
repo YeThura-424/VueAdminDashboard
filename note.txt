@@ -16,3 +16,24 @@
         <el-icon><location /></el-icon>
         <template #title>Dashboard</template>
       </router-link>
+
+
+
+      const currentPageData = computed(() => {
+  const start = (currentPage.value - 1) * pageSize.value;
+  const end = start + pageSize.value;
+  return props.tableData.slice(start, end);
+});
+// table data search function
+const filterTableData = computed(() =>
+  props.tableData.filter((data) => {
+    // convert user typed value to lower case
+    const searchValue = userSearchList.value
+      ? userSearchList.value.toLowerCase()
+      : "";
+    // check if any column in the data matchs user typed value
+    return Object.values(data).some((value) =>
+      value.toLowerCase().includes(searchValue)
+    );
+  })
+);

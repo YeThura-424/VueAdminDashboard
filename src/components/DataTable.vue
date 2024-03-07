@@ -8,11 +8,8 @@
       </div>
       <div class="total-entries">
         <span class="pr-2">Show</span>
-        <el-select
-          v-model="tableEntriesCount"
-          placeholder="Select"
-          style="width: 60px"
-        >
+        <el-select v-model="pageSize" placeholder="Select" style="width: 60px">
+          <el-option value="5" label="5" />
           <el-option value="10" selected label="10" />
           <el-option value="20" label="20" />
           <el-option value="30" label="30" />
@@ -30,7 +27,7 @@
       </div>
     </div>
     <el-table
-      :data="filterTableData"
+      :data="currentPageData"
       style="width: 100%"
       stripe
       table-layout="fixed"
@@ -54,14 +51,16 @@
     </el-table>
     <div class="tableFooter flex justify-between items-center py-4">
       <div class="total-table-data">
-        Showing 1 to {{ props.tableData.length }} of 5 entries
+        Showing {{ startIndex }} to {{ endIndex }} of
+        {{ props.tableData.length }} entries
       </div>
 
       <div class="table-peginator">
         <el-pagination
           background
           layout="prev, pager, next"
-          :page-size="10"
+          :page-size="pageSize"
+          v-model:current-page="currentPage"
           :pager-count="5"
           :total="props.tableData.length"
         />
@@ -78,7 +77,8 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const userSearchList = ref();
-const tableEntriesCount = ref(10);
+const currentPage = ref(1);
+const pageSize = ref(10);
 
 const props = defineProps({
   tableData: {
@@ -90,19 +90,32 @@ const props = defineProps({
     required: true,
   },
 });
-// table data search function
-const filterTableData = computed(() =>
-  props.tableData.filter((data) => {
-    // convert user typed value to lower case
+
+// Compute start and end index for showing data
+const startIndex = computed(() => (currentPage.value - 1) * pageSize.value + 1);
+const endIndex = computed(() =>
+  Math.min(currentPage.value * pageSize.value, props.tableData.length)
+);
+const currentPageData = computed(() => {
+  // Filter the table data based on the search value
+  const filteredData = props.tableData.filter((data) => {
+    // Convert user typed value to lower case
     const searchValue = userSearchList.value
       ? userSearchList.value.toLowerCase()
       : "";
-    // check if any column in the data matchs user typed value
+    // Check if any column in the data matches the user typed value
     return Object.values(data).some((value) =>
       value.toLowerCase().includes(searchValue)
     );
-  })
-);
+  });
+
+  // Calculate the start and end index based on the current page and page size
+  const start = (currentPage.value - 1) * pageSize.value;
+  const end = start + pageSize.value;
+
+  // Return the sliced data based on pagination
+  return filteredData.slice(start, end);
+});
 
 const addUser = () => {
   router.push({
