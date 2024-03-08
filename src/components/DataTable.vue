@@ -21,7 +21,6 @@
         <el-input
           v-model="userSearchList"
           style="width: 240px"
-          size="large"
           placeholder="Please Input"
           :suffix-icon="Search"
         />
