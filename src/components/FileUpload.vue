@@ -1,18 +1,12 @@
 <template>
   <el-upload
-    class="upload-demo"
-    drag
     action="#"
-    :auto-upload="false"
-    multiple
     list-type="picture-card"
+    :auto-upload="false"
+    :on-change="handleChange"
   >
-    <div class="heheheh">
-      <el-icon class="el-icon--upload"><upload-filled /></el-icon>
-      <div class="el-upload__text">
-        Drop file here or <em>click to upload</em>
-      </div>
-    </div>
+    <el-icon><Plus /></el-icon>
+
     <template #file="{ file }">
       <div>
         <img class="el-upload-list__item-thumbnail" :src="file.url" alt="" />
@@ -40,27 +34,23 @@
         </span>
       </div>
     </template>
-    <template #tip>
-      <div class="el-upload__tip">
-        jpg/png files with a size less than 500kb
-      </div>
-    </template>
   </el-upload>
+
   <el-dialog v-model="dialogVisible">
     <img w-full :src="dialogImageUrl" alt="Preview Image" />
   </el-dialog>
 </template>
-
-<script setup lang="ts">
-import { UploadFilled } from "@element-plus/icons-vue";
+<script lang="ts" setup>
 import { ref } from "vue";
-import { Delete, Download, ZoomIn } from "@element-plus/icons-vue";
+import { Delete, Download, Plus, ZoomIn } from "@element-plus/icons-vue";
+import type { UploadProps, UploadUserFile } from "element-plus";
+
 import type { UploadFile } from "element-plus";
 
 const dialogImageUrl = ref("");
 const dialogVisible = ref(false);
 const disabled = ref(false);
-
+const imageArray = ref([]);
 const handleRemove = (file: UploadFile) => {
   console.log(file);
 };
@@ -72,5 +62,10 @@ const handlePictureCardPreview = (file: UploadFile) => {
 
 const handleDownload = (file: UploadFile) => {
   console.log(file);
+};
+
+const handleChange: UploadProps["onChange"] = (files) => {
+  // imageArray.value.push = uploadFiles;
+  console.log(files);
 };
 </script>
