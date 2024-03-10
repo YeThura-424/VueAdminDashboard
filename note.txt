@@ -65,3 +65,17 @@ const filterTableData = computed(() =>
         </span>
       </div>
     </template>
+
+    orderno = "",
+    date = "",
+    customer = [{
+      name: "",
+      email: "",
+    }],
+    payment = "",
+    status = "",
+    method = "",
+    products = [
+      {
+      }
+    ]

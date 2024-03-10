@@ -40,7 +40,7 @@
             <div class="grid grid-cols-3 gap-x-5">
               <el-form-item label="Name">
                 <el-select
-                  v-model="productForm.vendor"
+                  v-model="productForm.variantsname"
                   placeholder="please select vendor"
                 >
                   <el-option label="Grand Royal Myanmar" value="master" />
@@ -49,7 +49,7 @@
                 </el-select>
               </el-form-item>
               <el-form-item label="Value" class="col-span-2">
-                <el-input v-model="productForm.name" />
+                <el-input v-model="productForm.variantsvalue" />
               </el-form-item>
             </div>
           </el-form>
@@ -92,7 +92,7 @@
             </el-form-item>
             <el-form-item label="Category">
               <el-select
-                v-model="productForm.vendor"
+                v-model="productForm.category"
                 placeholder="please select vendor"
               >
                 <el-option label="Grand Royal Myanmar" value="master" />
@@ -102,7 +102,7 @@
             </el-form-item>
             <el-form-item label="Collection">
               <el-select
-                v-model="productForm.vendor"
+                v-model="productForm.collection"
                 placeholder="please select vendor"
               >
                 <el-option label="Grand Royal Myanmar" value="master" />
@@ -112,7 +112,7 @@
             </el-form-item>
             <el-form-item label="Status">
               <el-select
-                v-model="productForm.vendor"
+                v-model="productForm.status"
                 placeholder="please select vendor"
               >
                 <el-option label="Grand Royal Myanmar" value="master" />
@@ -122,7 +122,7 @@
             </el-form-item>
             <el-form-item label="Tag">
               <el-select
-                v-model="productForm.vendor"
+                v-model="productForm.tag"
                 placeholder="please select vendor"
               >
                 <el-option label="Grand Royal Myanmar" value="master" />
@@ -156,14 +156,13 @@ const productForm = reactive({
   bestprice: "",
   discount: "",
   inStock: false,
-  password: "",
-  confirmPassowrd: "",
-  isActive: false,
-  houseno: "",
-  street: "",
-  ward: "",
-  township: "",
-  town: "",
+  variantsname: "",
+  variantsvalue: "",
+  vendor: "",
+  category: "",
+  collection: "",
+  status: "",
+  tag: "",
 });
 
 const createUser = () => {

@@ -3,7 +3,7 @@
     <div class="header-section">
       <PageHeader :breadcrumbs="userListBreadcrumb" title="User List" />
     </div>
-    <div class="content-section mt-6">
+    <div class="each-content-container mt-6">
       <DataTable :tableData="Users" :tableFormat="json" />
     </div>
   </div>

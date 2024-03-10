@@ -64,6 +64,24 @@
         >
       </el-menu-item>
     </el-sub-menu>
+    <el-sub-menu index="Order">
+      <template #title>
+        <el-icon><ShoppingTrolley /></el-icon>
+        <span>Order</span>
+      </template>
+      <el-menu-item index="OrderList">
+        <el-icon><HelpFilled /></el-icon>
+        <router-link :to="{ name: 'UserList' }" class="nav-link"
+          >List</router-link
+        >
+      </el-menu-item>
+      <el-menu-item index="OrderDetail"
+        ><el-icon><HelpFilled /></el-icon>
+        <router-link :to="{ name: 'UserAdd' }" class="nav-link"
+          >Detail</router-link
+        >
+      </el-menu-item>
+    </el-sub-menu>
   </el-menu>
 </template>
 
@@ -75,6 +93,7 @@ import {
   User,
   HelpFilled,
   Goods,
+  ShoppingTrolley,
 } from "@element-plus/icons-vue";
 import { useRoute } from "vue-router";
 const router = useRoute();
