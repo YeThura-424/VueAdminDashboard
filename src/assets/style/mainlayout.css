@@ -96,10 +96,7 @@ li.el-sub-menu.is-active .el-sub-menu__title {
   border-radius: 7px;
   box-shadow: 1px 3px 2px #aaa;
 }
-.content-section,
-.user-info,
-.user-address,
-.user-login {
+.each-content-container {
   background-color: #fff;
   box-shadow: 1px 3px 2px #aaa;
   padding: 10px 15px;

@@ -5,7 +5,7 @@
     </div>
     <div class="grid grid-cols-3 grid-flow-row gap-4 mt-6">
       <div class="col-span-2 flex flex-col gap-y-4">
-        <div class="user-info col-span-2">
+        <div class="each-content-container user-info col-span-2">
           <div class="user-info-title pb-4">
             <span>Product Information</span>
           </div>
@@ -26,15 +26,37 @@
             </div>
           </el-form>
         </div>
-        <div class="user-address col-span-2">
+        <div class="each-content-container user-address col-span-2">
           <div class="user-address-title pb-4">
             <span>Media</span>
           </div>
           <FileUpload />
         </div>
+        <div class="each-content-container user-info col-span-2">
+          <div class="user-info-title pb-4">
+            <span>Variants</span>
+          </div>
+          <el-form :model="productForm" label-width="auto" label-position="top">
+            <div class="grid grid-cols-3 gap-x-5">
+              <el-form-item label="Name">
+                <el-select
+                  v-model="productForm.vendor"
+                  placeholder="please select vendor"
+                >
+                  <el-option label="Grand Royal Myanmar" value="master" />
+                  <el-option label="Myanmar Bevarage" value="bachalor" />
+                  <el-option label="Nevia Company" value="bachalor" />
+                </el-select>
+              </el-form-item>
+              <el-form-item label="Value" class="col-span-2">
+                <el-input v-model="productForm.name" />
+              </el-form-item>
+            </div>
+          </el-form>
+        </div>
       </div>
       <div class="col-span-1 flex flex-col gap-y-4">
-        <div class="user-login">
+        <div class="each-content-container user-login">
           <div class="user-login-info-title pb-4">
             <span>Pricing</span>
           </div>
@@ -53,7 +75,7 @@
             </el-form-item>
           </el-form>
         </div>
-        <div class="user-login">
+        <div class="each-content-container user-login">
           <div class="user-login-info-title pb-4">
             <span>Organize</span>
           </div>

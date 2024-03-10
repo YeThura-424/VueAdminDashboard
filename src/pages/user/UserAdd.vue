@@ -4,7 +4,7 @@
       <PageHeader :breadcrumbs="userCreateBreadcrumb" title="User Add" />
     </div>
     <div class="grid grid-cols-3 gap-4 mt-6">
-      <div class="user-info col-span-2">
+      <div class="each-content-container user-info col-span-2">
         <div class="user-info-title pb-4">
           <span>User Information</span>
         </div>
@@ -51,7 +51,7 @@
           </div>
         </el-form>
       </div>
-      <div class="user-login">
+      <div class="each-content-container user-login">
         <div class="user-login-info-title pb-4">
           <span>User Login Info</span>
         </div>
@@ -78,7 +78,7 @@
           </el-form-item>
         </el-form>
       </div>
-      <div class="user-address col-span-3">
+      <div class="each-content-container user-address col-span-3">
         <div class="user-address-title pb-4">
           <span>User Address</span>
         </div>
