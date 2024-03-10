@@ -4,6 +4,7 @@
     list-type="picture-card"
     :auto-upload="false"
     :on-change="handleChange"
+    multiple
   >
     <el-icon><Plus /></el-icon>
 
