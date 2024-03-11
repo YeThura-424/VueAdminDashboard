@@ -23,6 +23,7 @@
   right: 0;
   height: 100vh;
   overflow-y: scroll !important;
+  transition: width 0.3s ease-in;
 }
 .main-contant {
   padding: 20px;

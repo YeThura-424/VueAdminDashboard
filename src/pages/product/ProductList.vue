@@ -11,14 +11,9 @@
 
 <script setup lang="ts">
 import PageHeader from "../../components/PageHeader.vue";
-import { Search, CirclePlus } from "@element-plus/icons-vue";
-import { ref, computed } from "vue";
-import { useRouter } from "vue-router";
 import DataTable from "../../components/DataTable.vue";
 import Products from "../../dummy/product.js";
 import json from "../../dummy/productTable.js";
-const router = useRouter();
-const userSearchList = ref();
 
 const productListBreadcrumb = [
   {
