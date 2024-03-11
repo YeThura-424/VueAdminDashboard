@@ -2,7 +2,9 @@
   <div class="table-container">
     <div class="table-search-action flex justify-between items-center">
       <div class="actions">
-        <el-button type="primary" :icon="CirclePlus">{{ title }}</el-button>
+        <el-button type="primary" :icon="CirclePlus" @click="addAction">{{
+          title
+        }}</el-button>
       </div>
       <div class="total-entries">
         <span class="pr-2">Show</span>
@@ -71,7 +73,7 @@
 
 <script setup lang="ts">
 import { Search, CirclePlus } from "@element-plus/icons-vue";
-import { ref, computed,defineEmits } from "vue";
+import { ref, computed, defineEmits } from "vue";
 
 const userSearchList = ref();
 const currentPage = ref(1);
@@ -132,10 +134,10 @@ const addAction = () => {
   emits("add-action");
 };
 
-const editAction = (index: number, row: User) => {
-  emits("edit-action", index, row);
-};
-const deleteAction = (index: number, row: User) => {
-  emits("delete-action", index, row);
-};
+// const editAction = (index: number, row: User) => {
+//   emits("edit-action", index, row);
+// };
+// const deleteAction = (index: number, row: User) => {
+//   emits("delete-action", index, row);
+// };
 </script>

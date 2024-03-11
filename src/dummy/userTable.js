@@ -24,12 +24,12 @@ const json = {
   action: [
     {
       name: "Edit",
-      action: "ProductEdit",
+      action: "editAction",
       type: "warning",
     },
     {
       name: "Delete",
-      action: "ProductDelete",
+      action: "deleteAction",
       type: "danger",
     },
   ],

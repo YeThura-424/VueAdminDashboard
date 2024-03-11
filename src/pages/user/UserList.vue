@@ -43,10 +43,10 @@ const addAction = () => {
 };
 
 const editAction = (index: number, row: User) => {
-  // Your handleEdit logic here
+  console.log(row);
 };
 
 const deleteAction = (index: number, row: User) => {
-  // Your handleDelete logic here
+  console.log(row);
 };
 </script>
