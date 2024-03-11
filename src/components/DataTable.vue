@@ -2,9 +2,7 @@
   <div class="table-container">
     <div class="table-search-action flex justify-between items-center">
       <div class="actions">
-        <el-button type="primary" :icon="CirclePlus" @click="addUser"
-          >Add User</el-button
-        >
+        <el-button type="primary" :icon="CirclePlus">{{ title }}</el-button>
       </div>
       <div class="total-entries">
         <span class="pr-2">Show</span>
@@ -73,16 +71,17 @@
 
 <script setup lang="ts">
 import { Search, CirclePlus } from "@element-plus/icons-vue";
-import { ref, computed } from "vue";
-import { useRouter } from "vue-router";
-// import Users from "../dummy/user.js";
+import { ref, computed,defineEmits } from "vue";
 
-const router = useRouter();
 const userSearchList = ref();
 const currentPage = ref(1);
 const pageSize = ref(10);
 
 const props = defineProps({
+  title: {
+    type: String,
+    required: true,
+  },
   tableData: {
     type: Object,
     required: true,
@@ -92,6 +91,7 @@ const props = defineProps({
     required: true,
   },
 });
+const emits = defineEmits(["add-action", "edit-action", "delete-action"]);
 
 // Compute start and end index for showing data
 const startIndex = computed(() => (currentPage.value - 1) * pageSize.value + 1);
@@ -128,16 +128,14 @@ const handleSizeChange = (pageSize: number) => {
 const handleCurrentChange = (currentPage: number) => {
   currentPage = currentPage;
 };
-const addUser = () => {
-  router.push({
-    name: "UserAdd",
-  });
+const addAction = () => {
+  emits("add-action");
 };
 
-const handleEdit = (index: number, row: User) => {
-  console.log(index, row);
+const editAction = (index: number, row: User) => {
+  emits("edit-action", index, row);
 };
-const handleDelete = (index: number, row: User) => {
-  console.log(index, row);
+const deleteAction = (index: number, row: User) => {
+  emits("delete-action", index, row);
 };
 </script>

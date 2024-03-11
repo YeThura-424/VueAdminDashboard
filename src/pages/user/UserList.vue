@@ -4,7 +4,14 @@
       <PageHeader :breadcrumbs="userListBreadcrumb" title="User List" />
     </div>
     <div class="each-content-container mt-6">
-      <DataTable :tableData="Users" :tableFormat="json" />
+      <DataTable
+        :tableData="Users"
+        :tableFormat="json"
+        title="New User"
+        @add-action="addAction"
+        @edit-action="editAction"
+        @delete-action="deleteAction"
+      />
     </div>
   </div>
 </template>
@@ -14,6 +21,9 @@ import PageHeader from "../../components/PageHeader.vue";
 import DataTable from "../../components/DataTable.vue";
 import Users from "../../dummy/user.js";
 import json from "../../dummy/userTable.js";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const userListBreadcrumb = [
   {
@@ -25,4 +35,18 @@ const userListBreadcrumb = [
     routeName: "",
   },
 ];
+
+const addAction = () => {
+  router.push({
+    name: "UserAdd",
+  });
+};
+
+const editAction = (index: number, row: User) => {
+  // Your handleEdit logic here
+};
+
+const deleteAction = (index: number, row: User) => {
+  // Your handleDelete logic here
+};
 </script>
