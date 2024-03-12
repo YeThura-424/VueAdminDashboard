@@ -7,6 +7,9 @@
       <DataTable
         :tableData="Products"
         :tableFormat="json"
+        @add-action="addAction"
+        :editAction="editProduct"
+        :deleteAction="deleteProduct"
         title="New Product"
       />
     </div>
@@ -18,7 +21,15 @@ import PageHeader from "../../components/PageHeader.vue";
 import DataTable from "../../components/DataTable.vue";
 import Products from "../../dummy/product.js";
 import json from "../../dummy/productTable.js";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
+
+const addAction = () => {
+  router.push({
+    name: "ProductAdd",
+  });
+};
 const productListBreadcrumb = [
   {
     name: "Home",
@@ -29,4 +40,12 @@ const productListBreadcrumb = [
     routeName: "",
   },
 ];
+
+const editProduct = (index: number, row: Object) => {
+  console.log(index, row);
+};
+
+const deleteProduct = (index: number, row: Object) => {
+  console.log(index, row);
+};
 </script>

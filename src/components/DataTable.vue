@@ -33,17 +33,19 @@
       table-layout="fixed"
     >
       <el-table-column
-        v-for="header in props.tableFormat.headers"
+        v-for="header in tableFormat.headers"
         :prop="header.tableValue"
         :label="header.label"
       />
-      <el-table-column v-if="props.tableFormat.action.length > 0">
+      <el-table-column v-if="tableFormat.action.length > 0">
         <template #header> Actions </template>
         <template #default="scope">
           <el-button
-            v-for="buttonAction in props.tableFormat.action"
+            v-for="(buttonAction, index) in tableFormat.action"
+            :key="index"
             size="small"
             :type="buttonAction.type"
+            @click="handleAction(index, scope.row)"
             >{{ buttonAction.name }}</el-button
           >
         </template>
@@ -52,7 +54,7 @@
     <div class="tableFooter flex justify-between items-center py-4">
       <div class="total-table-data">
         Showing {{ startIndex }} to {{ endIndex }} of
-        {{ props.tableData.length }} entries
+        {{ tableData.length }} entries
       </div>
 
       <div class="table-peginator">
@@ -62,7 +64,7 @@
           v-model:current-page="currentPage"
           layout="prev, pager, next"
           :pager-count="5"
-          :total="props.tableData.length"
+          :total="tableData.length"
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
         />
@@ -79,30 +81,41 @@ const userSearchList = ref();
 const currentPage = ref(1);
 const pageSize = ref(10);
 
-const props = defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-  tableData: {
-    type: Object,
-    required: true,
-  },
-  tableFormat: {
-    type: Object,
-    required: true,
-  },
-});
-const emits = defineEmits(["add-action", "edit-action", "delete-action"]);
+const { title, tableData, tableFormat, editAction, deleteAction } = defineProps(
+  {
+    title: {
+      type: String,
+      required: true,
+    },
+    tableData: {
+      type: Object,
+      required: true,
+    },
+    tableFormat: {
+      type: Object,
+      required: true,
+    },
+    editAction: {
+      type: Function,
+      default: () => {},
+      required: true,
+    },
+    deleteAction: {
+      type: Function,
+      default: () => {},
+    },
+  }
+);
+const emits = defineEmits(["add-action"]);
 
 // Compute start and end index for showing data
 const startIndex = computed(() => (currentPage.value - 1) * pageSize.value + 1);
 const endIndex = computed(() =>
-  Math.min(currentPage.value * pageSize.value, props.tableData.length)
+  Math.min(currentPage.value * pageSize.value, tableData.length)
 );
 const currentPageData = computed(() => {
   // Filter the table data based on the search value
-  const filteredData = props.tableData.filter((data: any) => {
+  const filteredData = tableData.filter((data: any) => {
     // Convert user typed value to lower case
     const searchValue = userSearchList.value
       ? userSearchList.value.toLowerCase()
@@ -134,10 +147,13 @@ const addAction = () => {
   emits("add-action");
 };
 
-// const editAction = (index: number, row: User) => {
-//   emits("edit-action", index, row);
-// };
-// const deleteAction = (index: number, row: User) => {
-//   emits("delete-action", index, row);
-// };
+// edit or delete action as needed
+const handleAction = (index: number, row: any) => {
+  const action = tableFormat.action[index];
+  if (action.action === "edit") {
+    editAction(index, row);
+  } else if (action.action === "delete") {
+    deleteAction(index, row);
+  }
+};
 </script>
