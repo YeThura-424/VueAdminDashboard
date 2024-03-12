@@ -4,7 +4,11 @@
       <PageHeader :breadcrumbs="productListBreadcrumb" title="Product List" />
     </div>
     <div class="each-content-container mt-6">
-      <DataTable :tableData="Products" :tableFormat="json" />
+      <DataTable
+        :tableData="Products"
+        :tableFormat="json"
+        title="New Product"
+      />
     </div>
   </div>
 </template>

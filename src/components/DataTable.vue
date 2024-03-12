@@ -73,7 +73,7 @@
 
 <script setup lang="ts">
 import { Search, CirclePlus } from "@element-plus/icons-vue";
-import { ref, computed, defineEmits } from "vue";
+import { ref, computed } from "vue";
 
 const userSearchList = ref();
 const currentPage = ref(1);
