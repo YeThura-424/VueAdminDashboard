@@ -7,7 +7,7 @@
       <DataTable
         :tableData="Products"
         :tableFormat="json"
-        @add-action="addAction"
+        @add-action="addProduct"
         :editAction="editProduct"
         :deleteAction="deleteProduct"
         title="New Product"
@@ -25,7 +25,7 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 
-const addAction = () => {
+const addProduct = () => {
   router.push({
     name: "ProductAdd",
   });

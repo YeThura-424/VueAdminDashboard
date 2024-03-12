@@ -19,7 +19,10 @@
       </div>
     </div>
 
-    <el-menu-item index="Dashboard">
+    <el-menu-item
+      index="Dashboard"
+      :class="{ active: activeLink == 'Dashboard' }"
+    >
       <el-icon><icon-menu /></el-icon>
       <template #title>
         <router-link class="nav-link" :to="{ name: 'Dashboard' }"
