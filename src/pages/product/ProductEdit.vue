@@ -1,7 +1,7 @@
 <template>
   <div class="main-section">
     <div class="header-section">
-      <PageHeader :breadcrumbs="productCreateBreadcrumb" title="Product Add" />
+      <PageHeader :breadcrumbs="productCreateBreadcrumb" title="Product Edit" />
     </div>
     <div class="grid grid-cols-3 grid-flow-row gap-4 mt-6">
       <div class="col-span-2 flex flex-col gap-y-4">
@@ -178,7 +178,7 @@ const productCreateBreadcrumb = [
     routeName: "ProductList",
   },
   {
-    name: "Product-Create",
+    name: "Product-Edit",
     routeName: "",
   },
 ];

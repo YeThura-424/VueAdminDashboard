@@ -42,7 +42,10 @@ const productListBreadcrumb = [
 ];
 
 const editProduct = (index: number, row: Object) => {
-  console.log(index, row);
+  router.push({
+    name: "ProductEdit",
+    params: "row.sku",
+  });
 };
 
 const deleteProduct = (index: number, row: Object) => {
