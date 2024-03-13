@@ -44,7 +44,7 @@ const productListBreadcrumb = [
 const editProduct = (index: number, row: Object) => {
   router.push({
     name: "ProductEdit",
-    params: "row.sku",
+    params: row.sku,
   });
 };
 

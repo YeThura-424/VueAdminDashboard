@@ -1,7 +1,7 @@
 <template>
   <div class="table-container">
     <div class="table-search-action flex justify-between items-center">
-      <div class="actions">
+      <div class="actions" v-if="addAble">
         <el-button type="primary" :icon="CirclePlus" @click="addAction">{{
           title
         }}</el-button>
@@ -81,8 +81,13 @@ const userSearchList = ref();
 const currentPage = ref(1);
 const pageSize = ref(10);
 
-const { title, tableData, tableFormat, editAction, deleteAction } = defineProps(
-  {
+const { addAble, title, tableData, tableFormat, editAction, deleteAction } =
+  defineProps({
+    addAble: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     title: {
       type: String,
       required: true,
@@ -104,8 +109,7 @@ const { title, tableData, tableFormat, editAction, deleteAction } = defineProps(
       type: Function,
       default: () => {},
     },
-  }
-);
+  });
 const emits = defineEmits(["add-action"]);
 
 // Compute start and end index for showing data

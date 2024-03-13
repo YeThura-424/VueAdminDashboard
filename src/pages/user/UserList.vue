@@ -7,10 +7,10 @@
       <DataTable
         :tableData="Users"
         :tableFormat="json"
+        @add-action="addUser"
+        :editAction="editUser"
+        :deleteAction="deleteUser"
         title="New User"
-        @add-action="addAction"
-        @edit-action="editAction"
-        @delete-action="deleteAction"
       />
     </div>
   </div>
@@ -36,17 +36,17 @@ const userListBreadcrumb = [
   },
 ];
 
-const addAction = () => {
+const addUser = () => {
   router.push({
     name: "UserAdd",
   });
 };
 
-const editAction = (index: number, row: User) => {
+const editUser = (index: number, row: User) => {
   console.log(row);
 };
 
-const deleteAction = (index: number, row: User) => {
+const deleteUser = (index: number, row: User) => {
   console.log(row);
 };
 </script>

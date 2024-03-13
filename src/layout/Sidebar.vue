@@ -71,7 +71,7 @@
       </template>
       <el-menu-item index="OrderList">
         <el-icon><HelpFilled /></el-icon>
-        <router-link :to="{ name: 'UserList' }" class="nav-link"
+        <router-link :to="{ name: 'OrderList' }" class="nav-link"
           >List</router-link
         >
       </el-menu-item>
