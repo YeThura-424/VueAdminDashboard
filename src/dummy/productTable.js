@@ -36,6 +36,11 @@ const json = {
       action: "delete",
       type: "danger",
     },
+    {
+      name: "View",
+      action: "detail",
+      type: "info",
+    },
   ],
 };
 

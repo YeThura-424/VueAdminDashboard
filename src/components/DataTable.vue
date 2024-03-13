@@ -30,7 +30,7 @@
       :data="currentPageData"
       style="width: 100%"
       stripe
-      table-layout="fixed"
+      table-layout="auto"
     >
       <el-table-column
         v-for="header in tableFormat.headers"
