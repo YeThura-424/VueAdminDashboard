@@ -16,10 +16,11 @@
 </template>
 
 <script setup lang="ts">
-import { ElNotification as notify } from "element-plus";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 const onBack = () => {
-  notify("Back");
+  router.back();
 };
 const props = defineProps({
   breadcrumbs: {
