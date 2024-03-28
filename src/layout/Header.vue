@@ -2,7 +2,7 @@
   <div class="right flex justify-end items-center gap-5 px-5">
     <div class="search_input">
       <el-input
-        v-model="input2"
+        v-model="header_search"
         class="w-50 m-2"
         placeholder="Type something"
         :prefix-icon="Search"
@@ -17,12 +17,18 @@
           />
         </span>
         <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item>Action 1</el-dropdown-item>
-            <el-dropdown-item>Action 2</el-dropdown-item>
-            <el-dropdown-item>Action 3</el-dropdown-item>
-            <el-dropdown-item disabled>Action 4</el-dropdown-item>
-            <el-dropdown-item divided>Action 5</el-dropdown-item>
+          <el-dropdown-menu class="header-dropdown">
+            <el-dropdown-item class="header-dropdown-item"
+              >Profile</el-dropdown-item
+            >
+            <el-dropdown-item class="header-dropdown-item"
+              >Setting</el-dropdown-item
+            >
+            <el-dropdown-item class="header-dropdown-item">
+              <el-button type="danger" class="header-dropdown-button"
+                >Logout</el-button
+              >
+            </el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -34,5 +40,5 @@
 import { ref } from "vue";
 import { Search } from "@element-plus/icons-vue";
 
-const input2 = ref("");
+const header_search = ref("");
 </script>
