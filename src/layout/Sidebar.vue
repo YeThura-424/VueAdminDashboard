@@ -84,6 +84,65 @@
         >
       </el-menu-item>
     </el-sub-menu>
+
+    <div class="menu-group">
+      <span class="uppercase">Authentication</span>
+    </div>
+
+    <el-sub-menu index="Role">
+      <template #title>
+        <el-icon><Goods /></el-icon>
+        <span>Role</span>
+      </template>
+      <el-menu-item index="ProductList">
+        <el-icon><HelpFilled /></el-icon>
+        <router-link :to="{ name: 'ProductList' }" class="nav-link"
+          >List</router-link
+        >
+      </el-menu-item>
+      <el-menu-item index="ProductAdd"
+        ><el-icon><HelpFilled /></el-icon>
+        <router-link :to="{ name: 'ProductAdd' }" class="nav-link"
+          >Create</router-link
+        >
+      </el-menu-item>
+    </el-sub-menu>
+    <el-sub-menu index="Permission">
+      <template #title>
+        <el-icon><User /></el-icon>
+        <span>Permission</span>
+      </template>
+      <el-menu-item index="UserList">
+        <el-icon><HelpFilled /></el-icon>
+        <router-link :to="{ name: 'UserList' }" class="nav-link"
+          >List</router-link
+        >
+      </el-menu-item>
+      <el-menu-item index="User-List"
+        ><el-icon><HelpFilled /></el-icon>
+        <router-link :to="{ name: 'UserAdd' }" class="nav-link"
+          >Create</router-link
+        >
+      </el-menu-item>
+    </el-sub-menu>
+    <el-sub-menu index="UserRolePermission">
+      <template #title>
+        <el-icon><ShoppingTrolley /></el-icon>
+        <span>UserRolePermission</span>
+      </template>
+      <el-menu-item index="OrderList">
+        <el-icon><HelpFilled /></el-icon>
+        <router-link :to="{ name: 'OrderList' }" class="nav-link"
+          >List</router-link
+        >
+      </el-menu-item>
+      <el-menu-item index="OrderDetail"
+        ><el-icon><HelpFilled /></el-icon>
+        <router-link :to="{ name: 'UserAdd' }" class="nav-link"
+          >Detail</router-link
+        >
+      </el-menu-item>
+    </el-sub-menu>
   </el-menu>
 </template>
 
