@@ -7,8 +7,12 @@
     </div>
     <div class="col-span-1">
       <el-card class="box-card">
-        <div v-for="o in 4" :key="o" class="text item">
-          {{ "List item " + o }}
+        <div class="card-title">
+          <h3 class="text-lg">Total Users</h3>
+        </div>
+        <div class="card-body flex justify-between">
+          <span>Last Week</span>
+          <p>550</p>
         </div>
       </el-card>
     </div>
