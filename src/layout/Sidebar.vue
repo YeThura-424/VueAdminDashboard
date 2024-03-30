@@ -27,7 +27,7 @@
         >
       </template>
     </el-menu-item>
-    <div class="menu-group">
+    <div class="menu-group" :class="appLayout.isCollapse ? 'hidden' : ''">
       <span class="uppercase">General</span>
     </div>
     <el-sub-menu index="Product">
@@ -85,7 +85,7 @@
       </el-menu-item>
     </el-sub-menu>
 
-    <div class="menu-group">
+    <div class="menu-group" :class="appLayout.isCollapse ? 'hidden' : ''">
       <span class="uppercase">Authentication</span>
     </div>
 
