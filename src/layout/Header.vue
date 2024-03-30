@@ -1,5 +1,5 @@
 <template>
-  <div class="right flex justify-end items-center gap-5 px-5">
+  <div class="right flex justify-end items-center gap-10 px-5">
     <div class="search_input">
       <el-input
         v-model="header_search"
@@ -8,7 +8,13 @@
         :prefix-icon="Search"
       />
     </div>
-
+    <div class="theme-toggler">
+      <el-button
+        :icon="appLayoutStore.isDark ? Moon : Sunny"
+        circle
+        @click="appLayoutStore.toggleTheme(!appLayoutStore.isDark)"
+      />
+    </div>
     <div class="user_avatar">
       <el-dropdown>
         <span class="el-dropdown-link">
@@ -35,10 +41,11 @@
     </div>
   </div>
 </template>
-
 <script lang="ts" setup>
 import { ref } from "vue";
-import { Search } from "@element-plus/icons-vue";
+import { Search, Sunny, Moon } from "@element-plus/icons-vue";
+import { useAppLayoutStore } from "../store/AppLayout.js";
 
+const appLayoutStore = useAppLayoutStore();
 const header_search = ref("");
 </script>
