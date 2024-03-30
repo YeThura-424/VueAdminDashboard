@@ -27,7 +27,9 @@
         >
       </template>
     </el-menu-item>
-
+    <div class="menu-group">
+      <span class="uppercase">General</span>
+    </div>
     <el-sub-menu index="Product">
       <template #title>
         <el-icon><Goods /></el-icon>
