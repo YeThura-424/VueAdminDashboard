@@ -2,7 +2,7 @@
   <div class="grid grid-cols-3 gap-x-5">
     <div class="col-span-2">
       <el-card class="box-card">
-        <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
+        <BarChart :data="salesData" :options="salesOptions" />
       </el-card>
     </div>
     <div class="col-span-1">
@@ -14,29 +14,12 @@
     </div>
   </div>
 </template>
+
 <script lang="ts" setup>
-import { Bar } from "vue-chartjs";
-import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale,
-} from "chart.js";
+import BarChart from "../components/chart/BarChart.vue";
 import { reactive } from "vue";
 
-ChartJS.register(
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale
-);
-
-const chartData = reactive({
+const salesData = reactive({
   labels: [
     "January",
     "February",
@@ -53,19 +36,19 @@ const chartData = reactive({
   ],
   datasets: [
     {
-      label: "Data One",
+      label: "Total Sales",
       backgroundColor: "#7367f0",
       data: [40, 20, 12, 50, 65, 80, 15, 66, 80, 115, 45, 30],
     },
     {
-      label: "Data Two",
+      label: "Total Profit",
       backgroundColor: "#736733",
       data: [40, 20, 12, 50, 65, 80, 15, 66, 80, 115, 45, 30],
     },
   ],
 });
 
-const chartOptions = reactive({
+const salesOptions = reactive({
   responsive: true,
 });
 </script>

@@ -1,7 +1,5 @@
 <template>
-  <el-card class="box-card">
-    <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
-  </el-card>
+  <Bar id="my-chart-id" :options="props.options" :data="props.data" />
 </template>
 <script lang="ts" setup>
 import { Bar } from "vue-chartjs";
@@ -14,7 +12,6 @@ import {
   CategoryScale,
   LinearScale,
 } from "chart.js";
-import { reactive } from "vue";
 
 ChartJS.register(
   Title,
@@ -25,36 +22,23 @@ ChartJS.register(
   LinearScale
 );
 
-const chartData = reactive({
-  labels: [
-    "January",
-    "February",
-    "March",
-    "Apiral",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ],
-  datasets: [
-    {
-      label: "Data One",
-      backgroundColor: "#7367f0",
-      data: [40, 20, 12, 50, 65, 80, 15, 66, 80, 115, 45, 30],
-    },
-    {
-      label: "Data Two",
-      backgroundColor: "#736733",
-      data: [40, 20, 12, 50, 65, 80, 15, 66, 80, 115, 45, 30],
-    },
-  ],
-});
+interface data {
+  labels: string[];
+  datasets: {
+    label: string;
+    backgroundColor: string;
+    data: number[];
+  }[];
+}
 
-const chartOptions = reactive({
-  responsive: true,
+const props = defineProps({
+  data: {
+    type: Object as () => data,
+    required: true,
+  },
+  options: {
+    type: Object,
+    required: true,
+  },
 });
 </script>
