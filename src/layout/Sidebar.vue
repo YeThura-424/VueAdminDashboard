@@ -91,7 +91,7 @@
 
     <el-sub-menu index="Role">
       <template #title>
-        <el-icon><Goods /></el-icon>
+        <el-icon><Lock /></el-icon>
         <span>Role</span>
       </template>
       <el-menu-item index="ProductList">
@@ -109,7 +109,7 @@
     </el-sub-menu>
     <el-sub-menu index="Permission">
       <template #title>
-        <el-icon><User /></el-icon>
+        <el-icon><CircleCheck /></el-icon>
         <span>Permission</span>
       </template>
       <el-menu-item index="UserList">
@@ -127,7 +127,7 @@
     </el-sub-menu>
     <el-sub-menu index="UserRolePermission">
       <template #title>
-        <el-icon><ShoppingTrolley /></el-icon>
+        <el-icon><Avatar /></el-icon>
         <span>UserRolePermission</span>
       </template>
       <el-menu-item index="OrderList">
@@ -145,7 +145,6 @@
     </el-sub-menu>
   </el-menu>
 </template>
-
 <script lang="ts" setup>
 import { Expand } from "@element-plus/icons-vue";
 import { useAppLayoutStore } from "../store/AppLayout.js";
@@ -155,6 +154,9 @@ import {
   HelpFilled,
   Goods,
   ShoppingTrolley,
+  Lock,
+  CircleCheck,
+  Avatar,
 } from "@element-plus/icons-vue";
 import { useRoute } from "vue-router";
 const router = useRoute();
