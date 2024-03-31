@@ -1,0 +1,34 @@
+<template>
+  <el-button plain @click="centerDialogVisible = true">
+    Click to open the Dialog
+  </el-button>
+
+  <el-dialog
+    v-model="centerDialogVisible"
+    :title="title"
+    width="500"
+    align-center
+  >
+    <template #body> </template>
+    <template #footer>
+      <div class="dialog-footer">
+        <el-button @click="centerDialogVisible = false">Cancel</el-button>
+        <el-button type="primary" @click="centerDialogVisible = false">
+          Confirm
+        </el-button>
+      </div>
+    </template>
+  </el-dialog>
+</template>
+<script lang="ts" setup>
+import { ref } from "vue";
+
+const centerDialogVisible = ref(false);
+
+const { title } = defineProps({
+  title: {
+    type: String,
+    required: true,
+  },
+});
+</script>

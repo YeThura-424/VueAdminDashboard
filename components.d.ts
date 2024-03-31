@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     BarChart: typeof import('./src/components/chart/BarChart.vue')['default']
     DataTable: typeof import('./src/components/DataTable.vue')['default']
+    Dialog: typeof import('./src/components/Dialog.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
