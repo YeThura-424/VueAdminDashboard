@@ -7,7 +7,7 @@
       <DataTable
         :tableData="Roles"
         :tableFormat="json"
-        @add-action="addProduct"
+        @add-action="addRole"
         :editAction="editProduct"
         :deleteAction="deleteProduct"
         title="New Role"
@@ -26,7 +26,7 @@ import { useRouter } from "vue-router";
 import Dialog from "../../components/Dialog.vue";
 const router = useRouter();
 
-const addProduct = () => {
+const addRole = () => {
   router.push({
     name: "ProductAdd",
   });
