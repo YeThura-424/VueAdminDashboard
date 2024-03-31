@@ -88,25 +88,14 @@
     <div class="menu-group" :class="appLayout.isCollapse ? 'hidden' : ''">
       <span class="uppercase">Authentication</span>
     </div>
-
-    <el-sub-menu index="Role">
+    <el-menu-item index="RoleList">
+      <el-icon><Lock /></el-icon>
       <template #title>
-        <el-icon><Lock /></el-icon>
-        <span>Role</span>
+        <router-link class="nav-link" :to="{ name: 'RoleList' }"
+          >Role</router-link
+        >
       </template>
-      <el-menu-item index="ProductList">
-        <el-icon><HelpFilled /></el-icon>
-        <router-link :to="{ name: 'ProductList' }" class="nav-link"
-          >List</router-link
-        >
-      </el-menu-item>
-      <el-menu-item index="ProductAdd"
-        ><el-icon><HelpFilled /></el-icon>
-        <router-link :to="{ name: 'ProductAdd' }" class="nav-link"
-          >Create</router-link
-        >
-      </el-menu-item>
-    </el-sub-menu>
+    </el-menu-item>
     <el-sub-menu index="Permission">
       <template #title>
         <el-icon><CircleCheck /></el-icon>

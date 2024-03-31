@@ -7,6 +7,7 @@ import ProductEdit from "../pages/product/ProductEdit.vue";
 import UserList from "../pages/user/UserList.vue";
 import UserAdd from "../pages/user/UserAdd.vue";
 import OrderList from "../pages/order/OrderList.vue";
+import RoleList from "../pages/role/RoleList.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -26,6 +27,7 @@ const router = createRouter({
         { path: "/userlist", name: "UserList", component: UserList },
         { path: "/user/add", name: "UserAdd", component: UserAdd },
         { path: "/order", name: "OrderList", component: OrderList },
+        { path: "/role", name: "RoleList", component: RoleList },
       ],
     },
   ],
