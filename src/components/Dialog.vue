@@ -1,10 +1,15 @@
 <template>
-  <el-dialog v-model="dialogvisible" :title="title" width="500" align-center>
+  <el-dialog
+    v-model="centerDialogVisible"
+    :title="title"
+    width="500"
+    align-center
+  >
     <template #body> </template>
     <template #footer>
       <div class="dialog-footer">
-        <el-button @click="dialogvisible = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogvisible = false">
+        <el-button @click="centerDialogVisible = false">Cancel</el-button>
+        <el-button type="primary" @click="centerDialogVisible = false">
           Confirm
         </el-button>
       </div>
@@ -14,12 +19,16 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 
-const dialogvisible = ref(false);
-
-const { title } = defineProps({
+const { title, dialogVisible } = defineProps({
   title: {
     type: String,
     required: true,
   },
+  dialogVisible: {
+    type: Boolean,
+    required: true,
+  },
 });
+
+const centerDialogVisible = ref(dialogVisible);
 </script>
