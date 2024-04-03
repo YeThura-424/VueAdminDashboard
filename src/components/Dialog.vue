@@ -30,5 +30,5 @@ const { title, dialogVisible } = defineProps({
   },
 });
 
-const centerDialogVisible = ref(dialogVisible);
+const centerDialogVisible = ref(true);
 </script>

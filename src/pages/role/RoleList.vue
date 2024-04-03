@@ -27,7 +27,7 @@ import { ref } from "vue";
 import Dialog from "../../components/Dialog.vue";
 const router = useRouter();
 
-const dialogVisible = ref(true);
+const dialogVisible = ref(false);
 
 const addRole = () => {
   dialogVisible.value = true;
