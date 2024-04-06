@@ -13,7 +13,7 @@
         title="New Role"
       />
     </div>
-    <Dialog :dialogVisible="dialogVisible" title="Add New Role" />
+    <Dialog v-model:dialogVisible="dialogVisible" title="Add New Role" />
   </div>
 </template>
 
