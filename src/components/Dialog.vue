@@ -17,7 +17,7 @@
   </el-dialog>
 </template>
 <script lang="ts" setup>
-import { onMounted, ref, watch, computed } from "vue";
+import { onMounted, computed } from "vue";
 
 const { title, dialogVisible } = defineProps({
   title: {
@@ -42,15 +42,4 @@ const centerDialogVisible = computed({
 onMounted(() => {
   console.log(dialogVisible, centerDialogVisible.value);
 });
-// watch(
-//   () => dialogVisible,
-//   (newValue) => {
-//     alert(newValue);
-//     centerDialogVisible.value = newValue;
-//   }
-// );
-// Emit an event when local state changes to synchronize with parent component
-// const handleUpdateVisible = (newValue: any) => {
-//   emits("update:dialogVisible", newValue);
-// };
 </script>
