@@ -5,7 +5,7 @@
     width="500"
     align-center
   >
-    <template #body> </template>
+    <span>Open the dialog from the center from the screen</span>
     <template #footer>
       <div class="dialog-footer">
         <el-button @click="centerDialogVisible = false">Cancel</el-button>
@@ -17,29 +17,14 @@
   </el-dialog>
 </template>
 <script lang="ts" setup>
-import { onMounted, computed } from "vue";
+import { ref } from "vue";
 
-const { title, dialogVisible } = defineProps({
+const centerDialogVisible = ref(false);
+
+const { title } = defineProps({
   title: {
     type: String,
     required: true,
   },
-  dialogVisible: {
-    type: Boolean,
-    required: true,
-  },
-});
-const emits = defineEmits(["update:dialogVisible"]);
-// const centerDialogVisible = ref(dialogVisible);
-const centerDialogVisible = computed({
-  get: () => dialogVisible,
-  set: (newValue) => {
-    console.log(newValue);
-    emits("update:dialogVisible", newValue);
-  },
-});
-// Watch changes to dialogVisible prop and update local state
-onMounted(() => {
-  console.log(dialogVisible, centerDialogVisible.value);
 });
 </script>

@@ -70,6 +70,23 @@
         />
       </div>
     </div>
+    <!-- dialog -->
+    <el-dialog
+      v-model="centerDialogVisible"
+      :title="title"
+      width="500"
+      align-center
+    >
+      <span>Open the dialog from the center from the screen</span>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button @click="centerDialogVisible = false">Cancel</el-button>
+          <el-button type="primary" @click="centerDialogVisible = false">
+            Confirm
+          </el-button>
+        </div>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
@@ -80,7 +97,7 @@ import { ref, computed } from "vue";
 const userSearchList = ref();
 const currentPage = ref(1);
 const pageSize = ref(10);
-
+const centerDialogVisible = ref(false);
 const { addAble, title, tableData, tableFormat, editAction, deleteAction } =
   defineProps({
     addAble: {
@@ -148,6 +165,7 @@ const handleCurrentChange = (currentPage: number) => {
   currentPage = currentPage;
 };
 const addAction = () => {
+  centerDialogVisible.value = true;
   emits("add-action");
 };
 
