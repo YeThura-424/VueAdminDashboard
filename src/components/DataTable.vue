@@ -80,7 +80,6 @@ import { ref, computed } from "vue";
 const userSearchList = ref();
 const currentPage = ref(1);
 const pageSize = ref(10);
-const centerDialogVisible = ref(false);
 const { addAble, title, tableData, tableFormat, editAction, deleteAction } =
   defineProps({
     addAble: {
@@ -148,7 +147,6 @@ const handleCurrentChange = (currentPage: number) => {
   currentPage = currentPage;
 };
 const addAction = () => {
-  centerDialogVisible.value = true;
   emits("add-action");
 };
 
