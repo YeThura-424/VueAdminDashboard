@@ -13,6 +13,7 @@
         title="New Role"
       />
     </div>
+    <Dialog title="Add New Role" />
   </div>
 </template>
 
@@ -23,7 +24,7 @@ import Roles from "../../dummy/role.js";
 import json from "../../dummy/roleTable.js";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
-// import Dialog from "../../components/Dialog.vue";
+import Dialog from "../../components/Dialog.vue";
 const router = useRouter();
 
 const dialogVisible = ref(false);
