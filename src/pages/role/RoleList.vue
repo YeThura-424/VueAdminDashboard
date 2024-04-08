@@ -4,16 +4,10 @@
       <PageHeader :breadcrumbs="productListBreadcrumb" title="Role List" />
     </div>
     <div class="each-content-container mt-6">
-      <DataTable
-        :tableData="Roles"
-        :tableFormat="json"
-        @add-action="addRole"
-        :editAction="editProduct"
-        :deleteAction="deleteProduct"
-        title="New Role"
-      />
+      <DataTable :tableData="Roles" :tableFormat="json" @add-action="addRole" :editAction="editProduct"
+        :deleteAction="deleteProduct" title="New Role" />
     </div>
-    <Dialog title="Add New Role" />
+    <Dialog title="Add New Role" :show="dialogVisible" @close="updateShow" />
   </div>
 </template>
 
@@ -42,6 +36,10 @@ const productListBreadcrumb = [
     routeName: "",
   },
 ];
+
+const updateShow = (newValue: boolean) => {
+  dialogVisible.value = newValue;
+};
 
 const editProduct = (index: number, row: Object) => {
   router.push({

@@ -1,15 +1,10 @@
 <template>
-  <el-dialog
-    v-model="centerDialogVisible"
-    :title="title"
-    width="500"
-    align-center
-  >
+  <el-dialog v-model="centerDialogVisible" :title="title" width="500" align-center>
     <span>Open the dialog from the center from the screen</span>
     <template #footer>
       <div class="dialog-footer">
-        <el-button @click="centerDialogVisible = false">Cancel</el-button>
-        <el-button type="primary" @click="centerDialogVisible = false">
+        <el-button @click="hide">Cancel</el-button>
+        <el-button type="primary" @click="hide">
           Confirm
         </el-button>
       </div>
@@ -17,14 +12,24 @@
   </el-dialog>
 </template>
 <script lang="ts" setup>
-import { ref } from "vue";
+import { defineProps, ref, watch ,defineEmits} from "vue";
 
 const centerDialogVisible = ref(false);
+const emit = defineEmits(["close"])
 
-const { title } = defineProps({
+const props = defineProps({
+  show: Boolean,
   title: {
     type: String,
     required: true,
   },
 });
+watch(() => props.show, (newValue, oldValue) => {
+  centerDialogVisible.value = newValue;
+});
+
+function hide(){
+  centerDialogVisible.value = false;
+  emit("close", false);
+}
 </script>
