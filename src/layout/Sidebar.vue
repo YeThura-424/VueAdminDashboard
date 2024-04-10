@@ -96,24 +96,14 @@
         >
       </template>
     </el-menu-item>
-    <el-sub-menu index="Permission">
+    <el-menu-item index="PermissionList">
+      <el-icon><CircleCheck /></el-icon>
       <template #title>
-        <el-icon><CircleCheck /></el-icon>
-        <span>Permission</span>
+        <router-link class="nav-link" :to="{ name: 'PermissionList' }"
+          >Permission</router-link
+        >
       </template>
-      <el-menu-item index="UserList">
-        <el-icon><HelpFilled /></el-icon>
-        <router-link :to="{ name: 'UserList' }" class="nav-link"
-          >List</router-link
-        >
-      </el-menu-item>
-      <el-menu-item index="User-List"
-        ><el-icon><HelpFilled /></el-icon>
-        <router-link :to="{ name: 'UserAdd' }" class="nav-link"
-          >Create</router-link
-        >
-      </el-menu-item>
-    </el-sub-menu>
+    </el-menu-item>
     <el-sub-menu index="UserRolePermission">
       <template #title>
         <el-icon><Avatar /></el-icon>

@@ -8,17 +8,21 @@
     </div>
     <div class="each-content-container mt-6">
       <DataTable
-        :tableData="Roles"
+        :tableData="Permissions"
         :tableFormat="json"
-        @add-action="addRole"
+        @add-action="addPermission"
         :editAction="editProduct"
         :deleteAction="deleteProduct"
-        title="New Role"
+        title="New Permission"
       />
     </div>
-    <Dialog title="Add New Role" :show="dialogVisible" @close="updateShow">
+    <Dialog
+      title="Add New Permission"
+      :show="dialogVisible"
+      @close="updateShow"
+    >
       <template #body>
-        <h1>Hello Bro</h1>
+        <h1>Hello Permission</h1>
       </template>
     </Dialog>
   </div>
@@ -27,7 +31,7 @@
 <script setup lang="ts">
 import PageHeader from "../../components/PageHeader.vue";
 import DataTable from "../../components/DataTable.vue";
-import Roles from "../../dummy/permission.js";
+import Permissions from "../../dummy/permission.js";
 import json from "../../dummy/permissionTable.js";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
@@ -36,7 +40,7 @@ const router = useRouter();
 
 const dialogVisible = ref(false);
 
-const addRole = () => {
+const addPermission = () => {
   dialogVisible.value = true;
 };
 const productListBreadcrumb = [
