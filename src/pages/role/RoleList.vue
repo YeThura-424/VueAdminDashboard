@@ -4,10 +4,20 @@
       <PageHeader :breadcrumbs="productListBreadcrumb" title="Role List" />
     </div>
     <div class="each-content-container mt-6">
-      <DataTable :tableData="Roles" :tableFormat="json" @add-action="addRole" :editAction="editProduct"
-        :deleteAction="deleteProduct" title="New Role" />
+      <DataTable
+        :tableData="Roles"
+        :tableFormat="json"
+        @add-action="addRole"
+        :editAction="editProduct"
+        :deleteAction="deleteProduct"
+        title="New Role"
+      />
     </div>
-    <Dialog title="Add New Role" :show="dialogVisible" @close="updateShow" />
+    <Dialog title="Add New Role" :show="dialogVisible" @close="updateShow">
+      <template #body>
+        <h1>Hello Bro</h1>
+      </template>
+    </Dialog>
   </div>
 </template>
 

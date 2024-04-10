@@ -8,7 +8,7 @@
     align-center
     @close="hide"
   >
-    <span>Open the dialog from the center from the screen</span>
+    <slot name="body"></slot>
     <template #footer>
       <div class="dialog-footer">
         <el-button @click="hide">Cancel</el-button>
@@ -24,7 +24,9 @@ const centerDialogVisible = ref(false);
 const emit = defineEmits(["close"]);
 
 const props = defineProps({
-  show: Boolean,
+  show: {
+    type: Boolean,
+  },
   title: {
     type: String,
     required: true,
