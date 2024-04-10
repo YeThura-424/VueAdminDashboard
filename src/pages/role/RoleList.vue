@@ -13,7 +13,7 @@
         title="New Role"
       />
     </div>
-    <Dialog title="Add New Role" :show="dialogVisible" @close="updateShow">
+    <Dialog title="Add New Role" :show="dialogVisible" @dismiss="updateShow">
       <template #body>
         <h1>Hello Bro</h1>
       </template>

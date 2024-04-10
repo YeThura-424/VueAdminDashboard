@@ -21,7 +21,7 @@
 import { defineProps, ref, watch, defineEmits } from "vue";
 
 const centerDialogVisible = ref(false);
-const emit = defineEmits(["close"]);
+const emit = defineEmits(["dismiss"]);
 
 const props = defineProps({
   show: {
@@ -41,6 +41,6 @@ watch(
 
 function hide() {
   centerDialogVisible.value = false;
-  emit("close", false);
+  emit("dismiss", false);
 }
 </script>

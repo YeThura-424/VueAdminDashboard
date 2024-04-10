@@ -19,10 +19,22 @@
     <Dialog
       title="Add New Permission"
       :show="dialogVisible"
-      @close="updateShow"
+      @dismiss="updateShow"
     >
       <template #body>
-        <h1>Hello Permission</h1>
+        <el-form
+          label-position="top"
+          label-width="auto"
+          :model="permissionForm"
+          style="max-width: 600px"
+        >
+          <el-form-item label="Name">
+            <el-input v-model="permissionForm.name" />
+          </el-form-item>
+          <el-form-item label="Slug">
+            <el-input v-model="permissionForm.slug" />
+          </el-form-item>
+        </el-form>
       </template>
     </Dialog>
   </div>
@@ -34,7 +46,7 @@ import DataTable from "../../components/DataTable.vue";
 import Permissions from "../../dummy/permission.js";
 import json from "../../dummy/permissionTable.js";
 import { useRouter } from "vue-router";
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 import Dialog from "../../components/Dialog.vue";
 const router = useRouter();
 
@@ -43,6 +55,11 @@ const dialogVisible = ref(false);
 const addPermission = () => {
   dialogVisible.value = true;
 };
+
+const permissionForm = reactive({
+  name: "",
+  slug: "",
+});
 const productListBreadcrumb = [
   {
     name: "Home",
