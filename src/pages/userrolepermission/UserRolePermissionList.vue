@@ -34,14 +34,14 @@ const userListBreadcrumb = [
     routeName: "Dashboard",
   },
   {
-    name: "User-List",
+    name: "UserRolePermission-List",
     routeName: "",
   },
 ];
 
 const addUser = () => {
   router.push({
-    name: "UserAdd",
+    name: "UserRolePermissionAdd",
   });
 };
 

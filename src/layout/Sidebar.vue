@@ -117,8 +117,8 @@
       </el-menu-item>
       <el-menu-item index="OrderDetail"
         ><el-icon><HelpFilled /></el-icon>
-        <router-link :to="{ name: 'UserAdd' }" class="nav-link"
-          >Detail</router-link
+        <router-link :to="{ name: 'UserRolePermissionAdd' }" class="nav-link"
+          >Create</router-link
         >
       </el-menu-item>
     </el-sub-menu>

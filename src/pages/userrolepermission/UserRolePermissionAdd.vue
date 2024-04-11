@@ -1,7 +1,10 @@
 <template>
   <div class="main-section">
     <div class="header-section">
-      <PageHeader :breadcrumbs="productCreateBreadcrumb" title="Product Add" />
+      <PageHeader
+        :breadcrumbs="productCreateBreadcrumb"
+        title="User Role Permission Add"
+      />
     </div>
     <div class="grid grid-cols-3 grid-flow-row gap-4 mt-6">
       <div class="col-span-2 flex flex-col gap-y-4">
@@ -174,11 +177,11 @@ const productCreateBreadcrumb = [
     routeName: "Dashboard",
   },
   {
-    name: "Product-List",
-    routeName: "ProductList",
+    name: "UserRolePermission-List",
+    routeName: "UserRolePermissionList",
   },
   {
-    name: "Product-Create",
+    name: "UserRolePermission-Create",
     routeName: "",
   },
 ];
