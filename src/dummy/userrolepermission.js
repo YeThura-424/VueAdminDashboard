@@ -1,28 +1,28 @@
 const userrolepermission = [
-    {
-      user: "Ryan"
+  {
+    user: "Ryan",
     role: "Admin",
-    isActive: true
+    isActive: true,
   },
-    {
-      name: "John"
+  {
+    user: "John",
     role: "Super-Admin",
-    isActive: true
+    isActive: true,
   },
   {
     user: "Taylor",
     role: "Manager",
-    isActive: false
+    isActive: false,
   },
   {
     user: "Sunil",
     role: "Cashier",
-    user: true,
+    isActive: true,
   },
   {
-    name: "Selena",
-    slug: "Accountant",
-    isActive: false
+    user: "Selena",
+    role: "Accountant",
+    isActive: false,
   },
 ];
 
