@@ -1,16 +1,19 @@
 <template>
   <div class="main-section">
     <div class="header-section">
-      <PageHeader :breadcrumbs="userListBreadcrumb" title="User List" />
+      <PageHeader
+        :breadcrumbs="userListBreadcrumb"
+        title="User Role Permission List"
+      />
     </div>
     <div class="each-content-container mt-6">
       <DataTable
-        :tableData="Users"
+        :tableData="UserRolePermission"
         :tableFormat="json"
         @add-action="addUser"
         :editAction="editUser"
         :deleteAction="deleteUser"
-        title="New User"
+        title="Add New"
       />
     </div>
   </div>
@@ -19,8 +22,8 @@
 <script setup lang="ts">
 import PageHeader from "../../components/PageHeader.vue";
 import DataTable from "../../components/DataTable.vue";
-import Users from "../../dummy/user.js";
-import json from "../../dummy/userTable.js";
+import UserRolePermission from "../../dummy/userrolepermission.js";
+import json from "../../dummy/userrolepermissionTable.js";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
