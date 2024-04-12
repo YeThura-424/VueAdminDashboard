@@ -41,6 +41,7 @@
           <div class="user-address-title pb-4">
             <span>Permissions</span>
           </div>
+          <Permission />
         </div>
         <div class="form-acion col-span-3 place-self-end">
           <el-button type="info" :icon="Close">Cancel</el-button>
@@ -57,7 +58,7 @@
 import PageHeader from "../../components/PageHeader.vue";
 import { reactive } from "vue";
 import { FolderAdd, Close } from "@element-plus/icons-vue";
-import FileUpload from "../../components/FileUpload.vue";
+import Permission from "../../components/Permission.vue";
 const productForm = reactive({
   name: "",
   sku: "",
