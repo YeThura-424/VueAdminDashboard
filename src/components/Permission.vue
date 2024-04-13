@@ -1,22 +1,26 @@
 <template>
   <el-tabs type="border-card">
     <el-tab-pane label="User">
-      <el-table :data="tableData" stripe style="width: 100%">
-        <el-table-column prop="module" label="Module" width="180" />
-        <el-table-column label="All" width="180">
-          <template #default>
-            <el-checkbox
-              v-model="checkAll"
-              :indeterminate="isIndeterminate"
-              @change="handleCheckAllChange"
-            ></el-checkbox>
-          </template>
-        </el-table-column>
-        <el-table-column prop="create" label="Create" />
-        <el-table-column prop="read" label="Read" />
-        <el-table-column prop="update" label="Update" />
-        <el-table-column prop="delete" label="Delete" />
-      </el-table>
+      <div class="permission-module">
+        <div class="permission-module-header">
+          <ul class="header-wrapper flex justify-between">
+            <li class="header-title">Module</li>
+            <li class="header-title">Create</li>
+            <li class="header-title">Read</li>
+            <li class="header-title">Update</li>
+            <li class="header-title">Delete</li>
+          </ul>
+        </div>
+        <div class="permission-module-body">
+          <ul class="header-wrapper flex justify-between">
+            <li class="header-title">Dashboard</li>
+            <li class="header-title">Create</li>
+            <li class="header-title">Read</li>
+            <li class="header-title">Update</li>
+            <li class="header-title">Delete</li>
+          </ul>
+        </div>
+      </div>
     </el-tab-pane>
     <el-tab-pane label="Config">Config</el-tab-pane>
     <el-tab-pane label="Role">Role</el-tab-pane>
@@ -25,20 +29,6 @@
 </template>
 <script lang="ts" setup>
 import { ref } from "vue";
-const checkAll = ref(false);
-const isIndeterminate = ref(true);
-const checkedCities = ref(["Shanghai", "Beijing"]);
-const cities = ["Shanghai", "Beijing", "Guangzhou", "Shenzhen"];
-
-const handleCheckAllChange = (val: boolean) => {
-  checkedCities.value = val ? cities : [];
-  isIndeterminate.value = false;
-};
-const handleCheckedCitiesChange = (value: string[]) => {
-  const checkedCount = value.length;
-  checkAll.value = checkedCount === cities.length;
-  isIndeterminate.value = checkedCount > 0 && checkedCount < cities.length;
-};
 
 const tableData = [
   {
