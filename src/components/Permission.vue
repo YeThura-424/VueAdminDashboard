@@ -1,25 +1,25 @@
 <template>
   <el-tabs type="border-card">
     <el-tab-pane label="User">
-      <div class="permission-module">
-        <div class="permission-module-header">
-          <ul class="header-wrapper flex justify-between">
-            <li class="header-title">Module</li>
-            <li class="header-title">Create</li>
-            <li class="header-title">Read</li>
-            <li class="header-title">Update</li>
-            <li class="header-title">Delete</li>
-          </ul>
-        </div>
-        <div class="permission-module-body">
-          <ul class="header-wrapper flex justify-between">
-            <li class="header-title">Dashboard</li>
-            <li class="header-title">Create</li>
-            <li class="header-title">Read</li>
-            <li class="header-title">Update</li>
-            <li class="header-title">Delete</li>
-          </ul>
-        </div>
+      <div class="permission-module my-10">
+        <table id="permission-table">
+          <thead>
+            <th>Module</th>
+            <th>Create</th>
+            <th>Read</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dashboard</td>
+              <td><el-checkbox v-model="form.create" size="large" /></td>
+              <td><el-checkbox v-model="form.create" size="large" /></td>
+              <td><el-checkbox v-model="form.create" size="large" /></td>
+              <td><el-checkbox v-model="form.create" size="large" /></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </el-tab-pane>
     <el-tab-pane label="Config">Config</el-tab-pane>
@@ -28,7 +28,7 @@
   </el-tabs>
 </template>
 <script lang="ts" setup>
-import { ref } from "vue";
+import { reactive } from "vue";
 
 const tableData = [
   {
@@ -80,4 +80,10 @@ const tableData = [
     delete: true,
   },
 ];
+const form = reactive({
+  create: false,
+  read: false,
+  update: false,
+  delete: false,
+});
 </script>

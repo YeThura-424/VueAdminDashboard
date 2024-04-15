@@ -145,3 +145,25 @@ li.el-sub-menu.is-active .el-sub-menu__title {
   color: #fff !important;
   background-color: var(--primary-color) !important;
 }
+
+#permission-table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+#permission-table thead,
+tr {
+  text-align: left;
+}
+#permission-table thead th {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  background-color: #eee;
+}
+#permission-table tbody tr:nth-of-type(even) {
+  background-color: #eee;
+  padding: 10px;
+}
+#permission-table tbody tr td {
+  padding: 5px 10px;
+}
