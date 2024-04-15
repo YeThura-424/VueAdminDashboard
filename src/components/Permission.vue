@@ -1,7 +1,7 @@
 <template>
   <el-tabs type="border-card">
     <el-tab-pane label="User">
-      <div class="permission-module my-10">
+      <div class="permission-module">
         <table id="permission-table">
           <thead>
             <th>Module</th>
@@ -14,9 +14,30 @@
             <tr>
               <td>Dashboard</td>
               <td><el-checkbox v-model="form.create" size="large" /></td>
+              <td><el-checkbox v-model="form.read" size="large" /></td>
+              <td><el-checkbox v-model="form.update" size="large" /></td>
+              <td><el-checkbox v-model="form.delete" size="large" /></td>
+            </tr>
+            <tr>
+              <td>Product</td>
               <td><el-checkbox v-model="form.create" size="large" /></td>
+              <td><el-checkbox v-model="form.read" size="large" /></td>
+              <td><el-checkbox v-model="form.update" size="large" /></td>
+              <td><el-checkbox v-model="form.delete" size="large" /></td>
+            </tr>
+            <tr>
+              <td>Order</td>
               <td><el-checkbox v-model="form.create" size="large" /></td>
+              <td><el-checkbox v-model="form.read" size="large" /></td>
+              <td><el-checkbox v-model="form.update" size="large" /></td>
+              <td><el-checkbox v-model="form.delete" size="large" /></td>
+            </tr>
+            <tr>
+              <td>Customer</td>
               <td><el-checkbox v-model="form.create" size="large" /></td>
+              <td><el-checkbox v-model="form.read" size="large" /></td>
+              <td><el-checkbox v-model="form.update" size="large" /></td>
+              <td><el-checkbox v-model="form.delete" size="large" /></td>
             </tr>
           </tbody>
         </table>
