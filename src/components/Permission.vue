@@ -14,13 +14,15 @@
           <tbody>
             <tr>
               <td>Dashboard</td>
-              <el-checkbox
-                v-model="checkAll"
-                :indeterminate="isIndeterminate"
-                @change="handleCheckAllChange"
-              >
-                Check all
-              </el-checkbox>
+              <td>
+                <el-checkbox
+                  v-model="checkAll"
+                  :indeterminate="isIndeterminate"
+                  @change="handleCheckAllChange"
+                >
+                  Check all
+                </el-checkbox>
+              </td>
               <!-- <td><el-checkbox v-model="form.create" size="large" /></td>
               <td><el-checkbox v-model="form.read" size="large" /></td>
               <td><el-checkbox v-model="form.update" size="large" /></td>
