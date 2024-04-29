@@ -79,3 +79,27 @@ const filterTableData = computed(() =>
       {
       }
     ]
+
+
+
+    <tr>
+              <td>Product</td>
+              <td><el-checkbox v-model="form.create" size="large" /></td>
+              <td><el-checkbox v-model="form.read" size="large" /></td>
+              <td><el-checkbox v-model="form.update" size="large" /></td>
+              <td><el-checkbox v-model="form.delete" size="large" /></td>
+            </tr>
+            <tr>
+              <td>Order</td>
+              <td><el-checkbox v-model="form.create" size="large" /></td>
+              <td><el-checkbox v-model="form.read" size="large" /></td>
+              <td><el-checkbox v-model="form.update" size="large" /></td>
+              <td><el-checkbox v-model="form.delete" size="large" /></td>
+            </tr>
+            <tr>
+              <td>Customer</td>
+              <td><el-checkbox v-model="form.create" size="large" /></td>
+              <td><el-checkbox v-model="form.read" size="large" /></td>
+              <td><el-checkbox v-model="form.update" size="large" /></td>
+              <td><el-checkbox v-model="form.delete" size="large" /></td>
+            </tr>

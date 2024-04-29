@@ -5,6 +5,7 @@
         <table id="permission-table">
           <thead>
             <th>Module</th>
+            <th>Check All</th>
             <th>Create</th>
             <th>Read</th>
             <th>Update</th>
@@ -13,31 +14,30 @@
           <tbody>
             <tr>
               <td>Dashboard</td>
-              <td><el-checkbox v-model="form.create" size="large" /></td>
+              <el-checkbox
+                v-model="checkAll"
+                :indeterminate="isIndeterminate"
+                @change="handleCheckAllChange"
+              >
+                Check all
+              </el-checkbox>
+              <!-- <td><el-checkbox v-model="form.create" size="large" /></td>
               <td><el-checkbox v-model="form.read" size="large" /></td>
               <td><el-checkbox v-model="form.update" size="large" /></td>
-              <td><el-checkbox v-model="form.delete" size="large" /></td>
-            </tr>
-            <tr>
-              <td>Product</td>
-              <td><el-checkbox v-model="form.create" size="large" /></td>
-              <td><el-checkbox v-model="form.read" size="large" /></td>
-              <td><el-checkbox v-model="form.update" size="large" /></td>
-              <td><el-checkbox v-model="form.delete" size="large" /></td>
-            </tr>
-            <tr>
-              <td>Order</td>
-              <td><el-checkbox v-model="form.create" size="large" /></td>
-              <td><el-checkbox v-model="form.read" size="large" /></td>
-              <td><el-checkbox v-model="form.update" size="large" /></td>
-              <td><el-checkbox v-model="form.delete" size="large" /></td>
-            </tr>
-            <tr>
-              <td>Customer</td>
-              <td><el-checkbox v-model="form.create" size="large" /></td>
-              <td><el-checkbox v-model="form.read" size="large" /></td>
-              <td><el-checkbox v-model="form.update" size="large" /></td>
-              <td><el-checkbox v-model="form.delete" size="large" /></td>
+              <td><el-checkbox v-model="form.delete" size="large" /></td> -->
+              <el-checkbox-group
+                v-model="checkedCities"
+                @change="handleCheckedCitiesChange"
+              >
+                <td v-for="city in cities">
+                  <el-checkbox
+                    :key="city"
+                    :label="city"
+                    :value="city"
+                    size="large"
+                  />
+                </td>
+              </el-checkbox-group>
             </tr>
           </tbody>
         </table>
@@ -49,7 +49,7 @@
   </el-tabs>
 </template>
 <script lang="ts" setup>
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 
 const tableData = [
   {
@@ -101,6 +101,19 @@ const tableData = [
     delete: true,
   },
 ];
+const checkAll = ref(false);
+const isIndeterminate = ref(true);
+const checkedCities = ref(["Shanghai", "Beijing"]);
+const cities = ["Shanghai", "Beijing", "Guangzhou", "Shenzhen"];
+const handleCheckAllChange = (val: boolean) => {
+  checkedCities.value = val ? cities : [];
+  isIndeterminate.value = false;
+};
+const handleCheckedCitiesChange = (value: string[]) => {
+  const checkedCount = value.length;
+  checkAll.value = checkedCount === cities.length;
+  isIndeterminate.value = checkedCount > 0 && checkedCount < cities.length;
+};
 const form = reactive({
   create: false,
   read: false,
