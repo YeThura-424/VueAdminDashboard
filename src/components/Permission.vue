@@ -14,32 +14,11 @@
           <tbody>
             <tr>
               <td>Dashboard</td>
-              <td>
-                <el-checkbox
-                  v-model="checkAll"
-                  :indeterminate="isIndeterminate"
-                  @change="handleCheckAllChange"
-                >
-                  Check all
-                </el-checkbox>
-              </td>
-              <!-- <td><el-checkbox v-model="form.create" size="large" /></td>
-              <td><el-checkbox v-model="form.read" size="large" /></td>
-              <td><el-checkbox v-model="form.update" size="large" /></td>
-              <td><el-checkbox v-model="form.delete" size="large" /></td> -->
-              <el-checkbox-group
-                v-model="checkedCities"
-                @change="handleCheckedCitiesChange"
-              >
-                <td v-for="city in cities">
-                  <el-checkbox
-                    :key="city"
-                    :label="city"
-                    :value="city"
-                    size="large"
-                  />
-                </td>
-              </el-checkbox-group>
+              <td><el-checkbox v-model="form.create" /></td>
+              <td><el-checkbox v-model="form.create" /></td>
+              <td><el-checkbox v-model="form.read" /></td>
+              <td><el-checkbox v-model="form.update" /></td>
+              <td><el-checkbox v-model="form.delete" /></td>
             </tr>
           </tbody>
         </table>
@@ -107,6 +86,7 @@ const checkAll = ref(false);
 const isIndeterminate = ref(true);
 const checkedCities = ref(["Shanghai", "Beijing"]);
 const cities = ["Shanghai", "Beijing", "Guangzhou", "Shenzhen"];
+
 const handleCheckAllChange = (val: boolean) => {
   checkedCities.value = val ? cities : [];
   isIndeterminate.value = false;
