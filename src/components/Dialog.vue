@@ -4,7 +4,7 @@
     :close-on-press-escape="false"
     :close-on-click-modal="false"
     :title="title"
-    width="500"
+    :width="$props.width"
     align-center
     @close="hide"
   >
@@ -30,6 +30,11 @@ const props = defineProps({
   title: {
     type: String,
     required: true,
+  },
+  width: {
+    type: String,
+    default: "500",
+    required: false,
   },
 });
 watch(

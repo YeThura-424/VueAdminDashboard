@@ -13,9 +13,24 @@
         title="New Role"
       />
     </div>
-    <Dialog title="Add New Role" :show="dialogVisible" @dismiss="updateShow">
+    <Dialog
+      title="Add New Role"
+      :show="dialogVisible"
+      @dismiss="updateShow"
+      width="800"
+    >
       <template #body>
-        <h1>Hello Bro</h1>
+        <el-form label-position="top" label-width="auto" :model="roleForm">
+          <el-form-item label="Name">
+            <el-input v-model="roleForm.name" />
+          </el-form-item>
+          <div class="each-content-container user-address">
+            <div class="user-address-title pb-4">
+              <span>Permissions</span>
+            </div>
+            <Permission @submitPermissions="handlePermission" />
+          </div>
+        </el-form>
       </template>
     </Dialog>
   </div>
@@ -27,12 +42,20 @@ import DataTable from "../../components/DataTable.vue";
 import Roles from "../../dummy/role.js";
 import json from "../../dummy/roleTable.js";
 import { useRouter } from "vue-router";
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 import Dialog from "../../components/Dialog.vue";
+import Permission from "../../components/Permission.vue";
 const router = useRouter();
 
 const dialogVisible = ref(false);
-
+const roleForm = reactive({
+  name: "",
+  permissions: "",
+});
+const handlePermission = (newVal: any) => {
+  console.log(newVal);
+  roleForm.permissions = newVal;
+};
 const addRole = () => {
   dialogVisible.value = true;
 };

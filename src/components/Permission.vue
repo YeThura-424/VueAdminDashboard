@@ -51,7 +51,7 @@
   </el-tabs>
 </template>
 <script lang="ts" setup>
-import { reactive } from "vue";
+import { reactive, watch } from "vue";
 import permissions from "../dummy/permissionModule.js";
 
 const emit = defineEmits(["submitPermissions"]);
@@ -71,5 +71,6 @@ const checkAllPermissions = (module) => {
   permissionVAl.update[module] = isChecked;
   permissionVAl.delete[module] = isChecked;
 };
+
 emit("submitPermissions", permissionVAl);
 </script>
