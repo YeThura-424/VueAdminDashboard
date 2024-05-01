@@ -1,0 +1,57 @@
+const permissions = [
+  {
+    module: "Product",
+    model_value: "form.product",
+    all: true,
+    create: true,
+    read: true,
+    update: true,
+    delete: true,
+  },
+  {
+    module: "User",
+    model_value: "form.user",
+    all: true,
+    create: true,
+    read: true,
+    update: true,
+    delete: true,
+  },
+  {
+    module: "Order",
+    model_value: "form.order",
+    all: true,
+    create: true,
+    read: true,
+    update: true,
+    delete: true,
+  },
+  {
+    module: "Role",
+    model_value: "form.role",
+    all: true,
+    create: true,
+    read: true,
+    update: true,
+    delete: true,
+  },
+  {
+    module: "Permission",
+    model_value: "form.permission",
+    all: true,
+    create: true,
+    read: true,
+    update: true,
+    delete: true,
+  },
+  {
+    module: "UserRolePermission",
+    all: true,
+    create: true,
+    read: true,
+    update: true,
+    delete: true,
+  },
+];
+
+export default permissions;

@@ -1,5 +1,5 @@
 <template>
-  <el-tabs type="border-card">
+  <el-tabs type="border-card" @update="submitPermissions">
     <el-tab-pane label="User">
       <div class="permission-module">
         <table id="permission-table">
@@ -12,13 +12,13 @@
             <th>Delete</th>
           </thead>
           <tbody>
-            <tr>
-              <td>Dashboard</td>
-              <td><el-checkbox v-model="form.create" /></td>
-              <td><el-checkbox v-model="form.create" /></td>
-              <td><el-checkbox v-model="form.read" /></td>
-              <td><el-checkbox v-model="form.update" /></td>
-              <td><el-checkbox v-model="form.delete" /></td>
+            <tr v-for="(permission, index) in permissions" :key="index">
+              <td>{{ permission.module }}</td>
+              <td><el-checkbox v-model="permissionVAl.all[index]" /></td>
+              <td><el-checkbox v-model="permissionVAl.create[index]" /></td>
+              <td><el-checkbox v-model="permissionVAl.read[index]" /></td>
+              <td><el-checkbox v-model="permissionVAl.update[index]" /></td>
+              <td><el-checkbox v-model="permissionVAl.delete[index]" /></td>
             </tr>
           </tbody>
         </table>
@@ -30,76 +30,19 @@
   </el-tabs>
 </template>
 <script lang="ts" setup>
-import { reactive, ref } from "vue";
+import { reactive } from "vue";
+import permissions from "../dummy/permissionModule.js";
+const emit = defineEmits(["submitPermissions"]);
 
-const tableData = [
-  {
-    module: "Product",
-    all: true,
-    create: true,
-    read: true,
-    update: true,
-    delete: true,
-  },
-  {
-    module: "User",
-    all: true,
-    create: true,
-    read: true,
-    update: true,
-    delete: true,
-  },
-  {
-    module: "Order",
-    all: true,
-    create: true,
-    read: true,
-    update: true,
-    delete: true,
-  },
-  {
-    module: "Role",
-    all: true,
-    create: true,
-    read: true,
-    update: true,
-    delete: true,
-  },
-  {
-    module: "Permission",
-    all: true,
-    create: true,
-    read: true,
-    update: true,
-    delete: true,
-  },
-  {
-    module: "UserRolePermission",
-    all: true,
-    create: true,
-    read: true,
-    update: true,
-    delete: true,
-  },
-];
-const checkAll = ref(false);
-const isIndeterminate = ref(true);
-const checkedCities = ref(["Shanghai", "Beijing"]);
-const cities = ["Shanghai", "Beijing", "Guangzhou", "Shenzhen"];
-
-const handleCheckAllChange = (val: boolean) => {
-  checkedCities.value = val ? cities : [];
-  isIndeterminate.value = false;
-};
-const handleCheckedCitiesChange = (value: string[]) => {
-  const checkedCount = value.length;
-  checkAll.value = checkedCount === cities.length;
-  isIndeterminate.value = checkedCount > 0 && checkedCount < cities.length;
-};
-const form = reactive({
-  create: false,
-  read: false,
-  update: false,
-  delete: false,
+const permissionVAl = reactive({
+  all: [],
+  create: [],
+  read: [],
+  update: [],
+  delete: [],
 });
+
+const submitPermissions = () => {
+  emit("submitPermissions", permissionVAl);
+};
 </script>

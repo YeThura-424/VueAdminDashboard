@@ -41,7 +41,7 @@
           <div class="user-address-title pb-4">
             <span>Permissions</span>
           </div>
-          <Permission />
+          <Permission @submitPermission="handlePermission" />
         </div>
         <div class="form-acion col-span-3 place-self-end">
           <el-button type="info" :icon="Close">Cancel</el-button>
@@ -93,4 +93,7 @@ const productCreateBreadcrumb = [
     routeName: "",
   },
 ];
+const handlePermission = (permissionVal) => {
+  console.log(permissionVal);
+};
 </script>
