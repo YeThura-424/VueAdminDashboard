@@ -17,6 +17,7 @@
               <td>
                 <el-checkbox
                   v-model="permissionVAl.all[permission.model_value]"
+                  @change="checkAllPermissions(permission.model_value)"
                 />
               </td>
               <td>
@@ -50,8 +51,9 @@
   </el-tabs>
 </template>
 <script lang="ts" setup>
-import { reactive, watch } from "vue";
+import { reactive } from "vue";
 import permissions from "../dummy/permissionModule.js";
+
 const emit = defineEmits(["submitPermissions"]);
 
 const permissionVAl = reactive({
@@ -61,10 +63,13 @@ const permissionVAl = reactive({
   update: [],
   delete: [],
 });
-
+const checkAllPermissions = (module) => {
+  // const permission = permissions[module];
+  const isChecked = permissionVAl.all[module];
+  permissionVAl.create[module] = isChecked;
+  permissionVAl.read[module] = isChecked;
+  permissionVAl.update[module] = isChecked;
+  permissionVAl.delete[module] = isChecked;
+};
 emit("submitPermissions", permissionVAl);
-
-// const submitPermissions = () => {
-//   emit("submitPermissions", permissionVAl);
-// };
 </script>
