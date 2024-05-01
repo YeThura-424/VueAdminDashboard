@@ -41,7 +41,7 @@
           <div class="user-address-title pb-4">
             <span>Permissions</span>
           </div>
-          <Permission @submitPermission="handlePermission" />
+          <Permission @submitPermissions="handlePermission" />
         </div>
         <div class="form-acion col-span-3 place-self-end">
           <el-button type="info" :icon="Close">Cancel</el-button>
@@ -74,6 +74,7 @@ const productForm = reactive({
   collection: "",
   status: "",
   tag: "",
+  permissions: "",
 });
 
 const createUser = () => {
@@ -93,7 +94,8 @@ const productCreateBreadcrumb = [
     routeName: "",
   },
 ];
-const handlePermission = (permissionVal) => {
-  console.log(permissionVal);
+const handlePermission = (newVal: any) => {
+  console.log(newVal);
+  productForm.permissions = newVal;
 };
 </script>

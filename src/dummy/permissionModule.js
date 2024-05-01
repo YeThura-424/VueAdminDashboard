@@ -1,7 +1,7 @@
 const permissions = [
   {
     module: "Product",
-    model_value: "form.product",
+    model_value: "product",
     all: true,
     create: true,
     read: true,
@@ -10,7 +10,7 @@ const permissions = [
   },
   {
     module: "User",
-    model_value: "form.user",
+    model_value: "user",
     all: true,
     create: true,
     read: true,
@@ -19,7 +19,7 @@ const permissions = [
   },
   {
     module: "Order",
-    model_value: "form.order",
+    model_value: "order",
     all: true,
     create: true,
     read: true,
@@ -28,7 +28,7 @@ const permissions = [
   },
   {
     module: "Role",
-    model_value: "form.role",
+    model_value: "role",
     all: true,
     create: true,
     read: true,
@@ -37,7 +37,7 @@ const permissions = [
   },
   {
     module: "Permission",
-    model_value: "form.permission",
+    model_value: "permission",
     all: true,
     create: true,
     read: true,

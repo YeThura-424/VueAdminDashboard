@@ -1,5 +1,5 @@
 <template>
-  <el-tabs type="border-card" @update="submitPermissions">
+  <el-tabs type="border-card">
     <el-tab-pane label="User">
       <div class="permission-module">
         <table id="permission-table">
@@ -14,11 +14,31 @@
           <tbody>
             <tr v-for="(permission, index) in permissions" :key="index">
               <td>{{ permission.module }}</td>
-              <td><el-checkbox v-model="permissionVAl.all[index]" /></td>
-              <td><el-checkbox v-model="permissionVAl.create[index]" /></td>
-              <td><el-checkbox v-model="permissionVAl.read[index]" /></td>
-              <td><el-checkbox v-model="permissionVAl.update[index]" /></td>
-              <td><el-checkbox v-model="permissionVAl.delete[index]" /></td>
+              <td>
+                <el-checkbox
+                  v-model="permissionVAl.all[permission.model_value]"
+                />
+              </td>
+              <td>
+                <el-checkbox
+                  v-model="permissionVAl.create[permission.model_value]"
+                />
+              </td>
+              <td>
+                <el-checkbox
+                  v-model="permissionVAl.read[permission.model_value]"
+                />
+              </td>
+              <td>
+                <el-checkbox
+                  v-model="permissionVAl.update[permission.model_value]"
+                />
+              </td>
+              <td>
+                <el-checkbox
+                  v-model="permissionVAl.delete[permission.model_value]"
+                />
+              </td>
             </tr>
           </tbody>
         </table>
@@ -30,7 +50,7 @@
   </el-tabs>
 </template>
 <script lang="ts" setup>
-import { reactive } from "vue";
+import { reactive, watch } from "vue";
 import permissions from "../dummy/permissionModule.js";
 const emit = defineEmits(["submitPermissions"]);
 
@@ -42,7 +62,9 @@ const permissionVAl = reactive({
   delete: [],
 });
 
-const submitPermissions = () => {
-  emit("submitPermissions", permissionVAl);
-};
+emit("submitPermissions", permissionVAl);
+
+// const submitPermissions = () => {
+//   emit("submitPermissions", permissionVAl);
+// };
 </script>
