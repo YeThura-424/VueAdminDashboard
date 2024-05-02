@@ -45,14 +45,15 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import { Delete, Download, Plus, ZoomIn } from "@element-plus/icons-vue";
-import type { UploadProps, UploadUserFile } from "element-plus";
+import type { UploadProps, UploadFile } from "element-plus";
 
-import type { UploadFile } from "element-plus";
+// import type { UploadFile } from "element-plus";
 
 const dialogImageUrl = ref("");
 const dialogVisible = ref(false);
 const disabled = ref(false);
-const imageArray: any = ref([]);
+// const imageArray: any = ref([]);
+
 const emit = defineEmits(["upload-photo"]);
 
 const handlePictureCardPreview = (file: UploadFile) => {
@@ -67,7 +68,8 @@ const handleRemove = (file: UploadFile) => {
   console.log(file);
 };
 const handleChange: UploadProps["onChange"] = (files) => {
-  console.log(files);
-  emit("upload-photo", files);
+  const imgArr: any = [];
+  imgArr.push = files;
+  emit("upload-photo", imgArr);
 };
 </script>
