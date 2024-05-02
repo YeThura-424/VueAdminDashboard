@@ -61,7 +61,7 @@
           </thead>
           <tbody>
             <tr
-              v-for="(permission, index) in permissions[0].authentication"
+              v-for="(permission, index) in permissions[1].authentication"
               :key="index"
             >
               <td>{{ permission.module }}</td>

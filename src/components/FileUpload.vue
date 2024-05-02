@@ -4,6 +4,7 @@
     list-type="picture-card"
     :auto-upload="false"
     :on-change="handleChange"
+    :on-remove="handleRemove"
     multiple
   >
     <el-icon><Plus /></el-icon>
@@ -51,10 +52,8 @@ import type { UploadFile } from "element-plus";
 const dialogImageUrl = ref("");
 const dialogVisible = ref(false);
 const disabled = ref(false);
-const imageArray = ref([]);
-const handleRemove = (file: UploadFile) => {
-  console.log(file);
-};
+const imageArray: any = ref([]);
+const emit = defineEmits(["upload-photo"]);
 
 const handlePictureCardPreview = (file: UploadFile) => {
   dialogImageUrl.value = file.url!;
@@ -64,9 +63,11 @@ const handlePictureCardPreview = (file: UploadFile) => {
 const handleDownload = (file: UploadFile) => {
   console.log(file);
 };
-
+const handleRemove = (file: UploadFile) => {
+  console.log(file);
+};
 const handleChange: UploadProps["onChange"] = (files) => {
-  // imageArray.value.push = uploadFiles;
   console.log(files);
+  emit("upload-photo", files);
 };
 </script>

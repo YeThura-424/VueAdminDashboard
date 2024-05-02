@@ -30,7 +30,7 @@
           <div class="user-address-title pb-4">
             <span>Media</span>
           </div>
-          <FileUpload />
+          <FileUpload @upload-photo="handleUpload" />
         </div>
         <div class="each-content-container user-info col-span-2">
           <div class="user-info-title pb-4">
@@ -163,8 +163,12 @@ const productForm = reactive({
   collection: "",
   status: "",
   tag: "",
+  image: "",
 });
 
+const handleUpload = (upload: any) => {
+  productForm.image = upload;
+};
 const createUser = () => {
   console.log(productForm);
 };
