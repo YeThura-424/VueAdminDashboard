@@ -167,7 +167,7 @@ const productForm = reactive({
 });
 
 const handleUpload = (upload: any) => {
-  productForm.image = upload;
+  productForm.image = upload.value;
 };
 const createUser = () => {
   console.log(productForm);
