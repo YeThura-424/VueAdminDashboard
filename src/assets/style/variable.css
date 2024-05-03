@@ -4,3 +4,11 @@
   --primary-color: #7367f0;
   --el-menu-line-height: 45px;
 }
+
+body.dark {
+  background-color: #7367f0;
+}
+
+body.light {
+  background-color: #fff;
+}
