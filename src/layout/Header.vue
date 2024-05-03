@@ -9,11 +9,7 @@
       />
     </div>
     <div class="theme-toggler">
-      <el-button
-        :icon="appLayoutStore.isDark ? Moon : Sunny"
-        circle
-        @click="appLayoutStore.toggleTheme(!appLayoutStore.isDark)"
-      />
+      <el-button :icon="isDark ? Moon : Sunny" circle @click="toggleDark()" />
     </div>
     <div class="user_avatar">
       <el-dropdown>
@@ -44,8 +40,15 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import { Search, Sunny, Moon } from "@element-plus/icons-vue";
-import { useAppLayoutStore } from "../store/AppLayout.js";
+import { useDark, useToggle } from "@vueuse/core";
 
-const appLayoutStore = useAppLayoutStore();
+const isDark = useDark({
+  selector: "body",
+  attribute: "color-scheme",
+  valueDark: "dark",
+  valueLight: "light",
+});
+const toggleDark = useToggle(isDark);
+
 const header_search = ref("");
 </script>
