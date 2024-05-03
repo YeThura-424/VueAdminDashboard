@@ -4,7 +4,7 @@ import { createPinia } from "pinia";
 import "./style.css";
 import App from "./App.vue";
 import router from "./router";
-// import "element-plus/theme-chalk/dark/css-vars.css";
+import "element-plus/theme-chalk/dark/css-vars.css";
 const pinia = createPinia();
 
 createApp(App).use(router).use(pinia).mount("#app");
