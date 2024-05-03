@@ -5,7 +5,8 @@
     :auto-upload="false"
     :on-change="handleChange"
     :on-remove="handleRemove"
-    multiple
+    :multiple="multiple"
+    v-model:file-list="uploadList"
   >
     <el-icon><Plus /></el-icon>
 
@@ -45,7 +46,12 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import { Delete, Download, Plus, ZoomIn } from "@element-plus/icons-vue";
-import type { UploadProps, UploadFile, UploadUserFile } from "element-plus";
+import type {
+  UploadProps,
+  UploadFile,
+  UploadFiles,
+  UploadUserFile,
+} from "element-plus";
 
 // import type { UploadFile } from "element-plus";
 
@@ -53,8 +59,16 @@ const dialogImageUrl = ref("");
 const dialogVisible = ref(false);
 const disabled = ref(false);
 const files = ref<UploadUserFile[]>([]);
-
+const uploadList = ref<UploadFile[]>([]);
 const emit = defineEmits(["upload-photo"]);
+
+const { multiple } = defineProps({
+  multiple: {
+    type: Boolean,
+    default: true,
+    required: false,
+  },
+});
 
 const handlePictureCardPreview = (file: UploadFile) => {
   dialogImageUrl.value = file.url!;
@@ -65,10 +79,17 @@ const handleDownload = (file: UploadFile) => {
   console.log(file);
 };
 const handleRemove = (file: UploadFile) => {
-  console.log(file);
+  const index = uploadList.value.indexOf(file);
+  // If the file exists in the file list, remove it
+  if (index !== -1) {
+    uploadList.value.splice(index, 1);
+    files.value.splice(index, 1);
+    emit("upload-photo", files);
+  }
 };
 const handleChange: UploadProps["onChange"] = (uploadFile, uploadFiles) => {
   files.value = [...uploadFiles];
   emit("upload-photo", files);
+  console.log("change");
 };
 </script>
