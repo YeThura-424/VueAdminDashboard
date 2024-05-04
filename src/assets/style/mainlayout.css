@@ -10,6 +10,7 @@ body {
   height: 100vh;
   position: absolute;
   background-color: var(--content-color);
+  overflow-y: auto;
 }
 .sidebar.sidebar-collapse {
   width: 64px;
@@ -51,10 +52,10 @@ body {
   z-index: 999;
 }
 
-a.nav-link {
+/* a.nav-link {
   display: block;
   min-width: 100%;
-}
+} */
 li.el-menu-item,
 .el-sub-menu__title {
   font-size: 16px !important;
