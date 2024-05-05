@@ -2,8 +2,7 @@
   width: 250px;
   height: 100vh;
   position: absolute;
-  /* background-color: var(--content-color); */
-  background-color: var(--ep-color-primary);
+  background-color: var(--content-color);
 }
 ul.el-menu.el-menu--vertical.el-menu-vertical-demo {
   overflow-y: auto;
@@ -12,8 +11,7 @@ ul.el-menu.el-menu--vertical.el-menu-vertical-demo {
   width: 64px;
 }
 .el-menu {
-  /* background-color: var(--content-color) !important; */
-  background-color: var(--ep-color-primary);
+  background-color: var(--content-color) !important;
 
   border: none !important;
   color: var(--color) !important;
