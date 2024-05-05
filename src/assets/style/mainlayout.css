@@ -88,7 +88,7 @@ tr.el-table__row.el-table__row--striped {
 
 .menu-group {
   margin-inline: 12px;
-  color: var(--menu-group);
+  color: var(--el-menu-list-group);
   padding-top: 10px;
 }
 .el-tabs--border-card > .el-tabs__header .el-tabs__item.is-active {

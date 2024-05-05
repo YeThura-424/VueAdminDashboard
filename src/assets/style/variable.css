@@ -6,10 +6,10 @@
 }
 :root.dark {
   --body-color: #273746;
-  --color: #fff;
   --menu-group: #ddd;
   --content-color: #212f3c;
   --primary-color: #7367f0;
+  --el-menu-title-active-color: #000;
 }
 
 body.dark {
