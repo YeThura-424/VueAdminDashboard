@@ -6,12 +6,18 @@
 .sidebar.sidebar-collapse {
   width: 64px;
 }
+.el-menu--collapse .el-sub-menu.is-active .el-sub-menu__title {
+  color: var(--el-menu-title-active-color);
+}
 ul.el-menu.el-menu--vertical.el-menu-vertical-demo {
   overflow-y: auto;
 }
 .el-menu {
   background-color: var(--content-color) !important;
   border: none !important;
+}
+.el-menu--collapse {
+  height: 100vh;
 }
 li.el-menu-item,
 .el-sub-menu__title {

@@ -56,11 +56,11 @@
   padding: 10px 15px;
   border-radius: 7px;
 }
-thead.el-table__body-header th,
+/* thead.el-table__body-header th,
 tr.el-table__row,
 tr.el-table__row.el-table__row--striped {
   background-color: var(--content-color) !important;
-}
+} */
 ::-webkit-scrollbar {
   width: 8px;
   background-color: #f5f5f5;
