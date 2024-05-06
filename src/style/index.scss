@@ -4,11 +4,12 @@
 :root {
   --el-menu-hover-color: #000;
   --el-menu-link-group: #ddd;
+  --el-color-primary: #7367f0;
 }
 html.dark {
   color-scheme: dark;
   --el-menu-active-color: #000;
-  --el-color-primary: #409eff;
+  --el-color-primary: #7367f0;
   --el-color-primary-light-3: #3375b9;
   --el-color-primary-light-5: #2a598a;
   --el-color-primary-light-7: #213d5b;
@@ -58,7 +59,7 @@ html.dark {
     0px 12px 32px #000000, 0px 8px 16px -8px #000000;
   --el-bg-color-page: #0a0a0a;
   --el-bg-color: #212f3c;
-  --el-bg-color-overlay: #1d1e1f;
+  --el-bg-color-overlay: #212f3c;
   --el-text-color-primary: #e5eaf3;
   --el-text-color-regular: #cfd3dc;
   --el-text-color-secondary: #a3a6ad;
@@ -73,9 +74,9 @@ html.dark {
   --el-fill-color-darker: #424243;
   --el-fill-color-dark: #39393a;
   --el-fill-color: #303030;
-  --el-fill-color-light: #262727;
-  --el-fill-color-lighter: #1d1d1d;
-  --el-fill-color-extra-light: #191919;
+  --el-fill-color-light: #1b2731;
+  --el-fill-color-lighter: #1b2731;
+  --el-fill-color-extra-light: #273746;
   --el-fill-color-blank: transparent;
   --el-mask-color: rgba(0, 0, 0, 0.8);
   --el-mask-color-extra-light: rgba(0, 0, 0, 0.3);

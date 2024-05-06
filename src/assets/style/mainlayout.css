@@ -99,7 +99,7 @@ tr.el-table__row.el-table__row--striped {
 #permission-table {
   border-collapse: collapse;
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid var(--el-border-color-light);
 }
 #permission-table thead,
 tr {
@@ -107,11 +107,11 @@ tr {
 }
 #permission-table thead th {
   padding: 10px;
-  border-bottom: 1px solid #ddd;
-  background-color: #eee;
+  border-bottom: 1px solid var(--el-border-color-light);
+  background-color: var(--el-fill-color-extra-light);
 }
 #permission-table tbody tr:nth-of-type(even) {
-  background-color: #eee;
+  background-color: var(--el-fill-color-light);
   padding: 10px;
 }
 #permission-table tbody tr td {
