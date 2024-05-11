@@ -29,7 +29,9 @@ li.el-menu-item,
   margin-block: 5px;
   transition: padding 0.2s ease-in !important;
 }
-
+li.el-menu-item a {
+  width: 100%;
+}
 li.el-menu-item:hover,
 .el-sub-menu__title:hover {
   background-color: #f0f0f0 !important;
