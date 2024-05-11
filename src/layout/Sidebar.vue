@@ -109,13 +109,13 @@
         <el-icon><Avatar /></el-icon>
         <span>UserRolePermission</span>
       </template>
-      <el-menu-item index="OrderList">
+      <el-menu-item index="UserRolePermissionList">
         <el-icon><HelpFilled /></el-icon>
         <router-link :to="{ name: 'UserRolePermissionList' }" class="nav-link"
           >List</router-link
         >
       </el-menu-item>
-      <el-menu-item index="OrderDetail"
+      <el-menu-item index="UserRolePermissionAdd"
         ><el-icon><HelpFilled /></el-icon>
         <router-link :to="{ name: 'UserRolePermissionAdd' }" class="nav-link"
           >Create</router-link
@@ -141,6 +141,8 @@ import { useRoute } from "vue-router";
 const router = useRoute();
 const appLayout = useAppLayoutStore();
 const activeLink = router.name;
+
+console.log(activeLink);
 </script>
 
 <style>
