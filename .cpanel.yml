@@ -1,0 +1,9 @@
+---
+deployment:
+  tasks:
+    - name: Pull latest changes
+      command: git pull origin main
+    - name: Install dependencies
+      command: npm install
+    - name: Build project
+      command: npm run build
