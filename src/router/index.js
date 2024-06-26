@@ -11,6 +11,7 @@ import RoleList from "../pages/role/RoleList.vue";
 import PermissionList from "../pages/permission/PermissionList.vue";
 import UserRolePermissionList from "../pages/userrolepermission/UserRolePermissionList.vue";
 import UserRolePermissionAdd from "../pages/userrolepermission/UserRolePermissionAdd.vue";
+import Login from "../pages/auth/login.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -47,6 +48,10 @@ const router = createRouter({
           component: PermissionList,
         },
       ],
+    },
+    {
+      path: "/login",
+      component: Login,
     },
   ],
 });

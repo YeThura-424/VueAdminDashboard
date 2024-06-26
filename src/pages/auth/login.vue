@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div :class="[is_register ? 'sign-up-mode' : '', 'container']">
     <div class="forms-container">
       <div class="signin-signup">
         <form action="#" class="sign-in-form">
@@ -71,7 +71,13 @@
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
             ex ratione. Aliquid!
           </p>
-          <button class="btn transparent" id="sign-up-btn">Sign up</button>
+          <button
+            class="btn transparent"
+            id="sign-up-btn"
+            @click="switchRegister"
+          >
+            Sign up
+          </button>
         </div>
         <img
           src="https://i.ibb.co/6HXL6q1/Privacy-policy-rafiki.png"
@@ -86,7 +92,9 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
             laboriosam ad deleniti.
           </p>
-          <button class="btn transparent" id="sign-in-btn">Sign in</button>
+          <button class="btn transparent" id="sign-in-btn" @click="switchLogin">
+            Sign in
+          </button>
         </div>
         <img
           src="https://i.ibb.co/nP8H853/Mobile-login-rafiki.png"
@@ -97,6 +105,23 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { ref } from "vue";
+
+const is_login = ref(true);
+const is_register = ref(false);
+
+const switchLogin = () => {
+  is_login.value = true;
+  is_register.value = false;
+};
+
+const switchRegister = () => {
+  is_register.value = true;
+  is_login.value = false;
+};
+</script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
