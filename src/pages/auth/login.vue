@@ -132,11 +132,6 @@ const switchRegister = () => {
   font-family: "Montserrat", sans-serif;
 }
 
-body,
-input {
-  font-family: "Montserrat", sans-serif;
-}
-
 .main-container {
   position: relative;
   width: 100%;
@@ -260,7 +255,7 @@ form.sign-in-form {
 
 .btn {
   width: 150px;
-  background-color: #f86f03;
+  background-color: #7367f0;
   border: none;
   outline: none;
   height: 49px;
@@ -274,7 +269,7 @@ form.sign-in-form {
 }
 
 .btn:hover {
-  background-color: #f98c39;
+  background-color: #5c588a;
 }
 .panels-main-container {
   position: absolute;
@@ -294,7 +289,7 @@ form.sign-in-form {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: linear-gradient(-45deg, #f86f03 0%, #ffa41b 100%);
+  background-image: linear-gradient(-45deg, #7367f0 0%, #5c588a 100%);
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;
