@@ -1,7 +1,7 @@
 // import dark theme
 // @use "element-plus/theme-chalk/src/dark/css-vars.scss" as *;
 
-:root {
+html.light {
   color-scheme: light;
   --el-menu-hover-color: #000;
   --el-menu-link-group: #ddd;

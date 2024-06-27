@@ -42,7 +42,12 @@ import { ref } from "vue";
 import { Search, Sunny, Moon } from "@element-plus/icons-vue";
 import { useDark, useToggle } from "@vueuse/core";
 
-const isDark = useDark();
+const isDark = useDark({
+  selector: "html",
+  attribute: "class",
+  valueDark: "dark",
+  valueLight: "light",
+});
 const toggleDark = useToggle(isDark);
 
 const header_search = ref("");
