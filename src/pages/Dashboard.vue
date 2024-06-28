@@ -16,7 +16,11 @@
         </div>
       </el-card>
       <el-card class="box-card">
-        <ApexChart :options="apexchart.options" :series="apexchart.series" />
+        <ApexChart
+          :options="apexchart.options"
+          :series="apexchart.series"
+          type="bar"
+        />
       </el-card>
     </div>
   </div>
@@ -59,15 +63,26 @@ const apexchart = reactive({
   options: {
     chart: {
       id: "vuechart-example",
+      stacked: true,
     },
     xaxis: {
-      categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
+      categories: [1991, 1992, 1993, 1994, 1995],
+    },
+    plotOptions: {
+      bar: {
+        borderRadius: 5,
+        columnWidth: 15,
+      },
     },
   },
   series: [
     {
       name: "series-1",
-      data: [30, 40, 45, 50, 49, 60, 70, 91],
+      data: [30, 40, 45, 50, 49],
+    },
+    {
+      name: "series-2",
+      data: [20, 15, 30, 25, 40],
     },
   ],
 });
