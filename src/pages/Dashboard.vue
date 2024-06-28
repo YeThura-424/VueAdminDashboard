@@ -15,7 +15,7 @@
           <p>550</p>
         </div>
       </el-card>
-      <el-card class="box-card">
+      <el-card class="box-card mt-8">
         <ApexChart
           :options="apexchart.options"
           :series="apexchart.series"
@@ -66,7 +66,7 @@ const apexchart = reactive({
       stacked: true,
     },
     xaxis: {
-      categories: [1991, 1992, 1993, 1994, 1995],
+      categories: [2020, 2021, 2022, 2023, 2024],
     },
     plotOptions: {
       bar: {
@@ -77,12 +77,16 @@ const apexchart = reactive({
   },
   series: [
     {
-      name: "series-1",
-      data: [30, 40, 45, 50, 49],
+      name: "Total Sales",
+      data: [80, 60, 65, 85, 70],
     },
     {
-      name: "series-2",
-      data: [20, 15, 30, 25, 40],
+      name: "Total Order",
+      data: [65, 55, 60, 75, 60],
+    },
+    {
+      name: "Total Profit",
+      data: [30, 60, 45, 60, 40],
     },
   ],
 });
