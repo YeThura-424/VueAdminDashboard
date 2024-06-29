@@ -26,15 +26,15 @@
     </div>
     <div class="col-span-2">
       <el-card>
-        <div class="statistics">
+        <div class="statistics h-[140px] flex flex-col justify-between">
           <div class="statistics-header flex justify-between items-end">
             <h1 class="text-lg">Statistics</h1>
-            <p class="text-sm">updated 1 month ago</p>
+            <p class="text-sm text-[#2f2b3d66]">updated 1 month ago</p>
           </div>
           <div class="statistics-body flex justify-between items-center">
             <div class="statistics-sales flex gap-5 items-center">
               <div
-                class="w-10 h-10 text-[#7367f0] bg-[#e8e6fc] flex items-center justify-center"
+                class="w-10 h-10 text-[#7367f0] bg-[#e8e6fc] flex items-center justify-center rounded-lg"
               >
                 <IconChartPie :size="24" stroke-width="1" />
               </div>
@@ -45,7 +45,7 @@
             </div>
             <div class="statistics-customers flex gap-5 items-center">
               <div
-                class="w-10 h-10 text-[#7367f0] bg-[#e8e6fc] flex items-center justify-center"
+                class="w-10 h-10 text-[#00bad1] bg-[#d6f4f7] flex items-center justify-center rounded-lg"
               >
                 <IconUsers :size="24" stroke-width="1" />
               </div>
@@ -56,7 +56,7 @@
             </div>
             <div class="statistics-products flex gap-5 items-center">
               <div
-                class="w-10 h-10 text-[#7367f0] bg-[#e8e6fc] flex items-center justify-center"
+                class="w-10 h-10 text-[#ff4c51] bg-[#ddd9dc] flex items-center justify-center rounded-lg"
               >
                 <IconShoppingCart :size="24" stroke-width="1" />
               </div>
@@ -67,7 +67,7 @@
             </div>
             <div class="statistics-revenue flex gap-5 items-center">
               <div
-                class="w-10 h-10 text-[#7367f0] bg-[#e8e6fc] flex items-center justify-center"
+                class="w-10 h-10 text-[#28c76f] bg-[#bfd6cb] flex items-center justify-center rounded-lg"
               >
                 <IconCurrencyDollar :size="24" stroke-width="1" />
               </div>
