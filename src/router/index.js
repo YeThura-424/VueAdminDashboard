@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import DefaultLayout from "../layout/DefaultLayout.vue";
-import Dashboard from "../pages/Dashboard.vue";
+import Dashboard from "../pages/Dashboard1.vue";
 import ProductList from "../pages/product/ProductList.vue";
 import ProductAdd from "../pages/product/ProductAdd.vue";
 import ProductEdit from "../pages/product/ProductEdit.vue";
