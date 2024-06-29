@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tabler/icons-vue": "^3.7.0",
     "apexcharts": "^3.49.2",
     "chart.js": "^4.4.2",
     "element-plus": "^2.5.6",

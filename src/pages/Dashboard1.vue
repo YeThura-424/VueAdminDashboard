@@ -10,7 +10,7 @@
             <el-button type="primary">View Sales</el-button>
           </div>
           <div class="avarter h-[140px] relative">
-            <img src="/public/dashboard1.png" alt="" class="w-full h-full" />
+            <img src="/dashboard1.png" alt="" class="w-full h-full" />
           </div>
         </div>
       </el-card>
@@ -25,19 +25,80 @@
       </el-card>
     </div>
     <div class="col-span-2">
-      <el-card class="box-card">
+      <el-card>
+        <div class="statistics">
+          <div class="statistics-header flex justify-between items-end">
+            <h1 class="text-lg">Statistics</h1>
+            <p class="text-sm">updated 1 month ago</p>
+          </div>
+          <div class="statistics-body flex justify-between items-center">
+            <div class="statistics-sales flex gap-5 items-center">
+              <div
+                class="w-10 h-10 text-[#7367f0] bg-[#e8e6fc] flex items-center justify-center"
+              >
+                <IconChartPie :size="24" stroke-width="1" />
+              </div>
+              <div>
+                <h1 class="text-lg">230k</h1>
+                <span class="text-sm">Sales</span>
+              </div>
+            </div>
+            <div class="statistics-customers flex gap-5 items-center">
+              <div
+                class="w-10 h-10 text-[#7367f0] bg-[#e8e6fc] flex items-center justify-center"
+              >
+                <IconUsers :size="24" stroke-width="1" />
+              </div>
+              <div>
+                <h1 class="text-lg">230k</h1>
+                <span class="text-sm">Sales</span>
+              </div>
+            </div>
+            <div class="statistics-products flex gap-5 items-center">
+              <div
+                class="w-10 h-10 text-[#7367f0] bg-[#e8e6fc] flex items-center justify-center"
+              >
+                <IconShoppingCart :size="24" stroke-width="1" />
+              </div>
+              <div>
+                <h1 class="text-lg">230k</h1>
+                <span class="text-sm">Sales</span>
+              </div>
+            </div>
+            <div class="statistics-revenue flex gap-5 items-center">
+              <div
+                class="w-10 h-10 text-[#7367f0] bg-[#e8e6fc] flex items-center justify-center"
+              >
+                <IconCurrencyDollar :size="24" stroke-width="1" />
+              </div>
+              <div>
+                <h1 class="text-lg">230k</h1>
+                <span class="text-sm">Sales</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </el-card>
+      <!-- <el-card class="box-card">
         <ApexChart
           :options="apexchart.options"
           :series="apexchart.series"
           type="bar"
         />
-      </el-card>
+      </el-card> -->
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { reactive } from "vue";
+import {
+  IconChartPie,
+  IconUsers,
+  IconShoppingCart,
+  IconCurrencyDollar,
+} from "@tabler/icons-vue";
+
 const apexchart = reactive({
   options: {
     chart: {
