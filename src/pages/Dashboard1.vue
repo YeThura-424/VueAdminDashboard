@@ -14,10 +14,13 @@
           </div>
         </div>
       </el-card>
-      <div class="grid grid-cols-2 gap-7">
+      <div class="grid grid-cols-2 gap-7 mb-4">
         <TotalProfit />
         <TotalExpense />
       </div>
+      <el-card class="mb-4">
+        <GeneratedLeads />
+      </el-card>
     </div>
     <div class="col-span-2">
       <Statistics />
@@ -38,6 +41,7 @@ import { reactive } from "vue";
 import Statistics from "../components/Dashboard/Statistics.vue";
 import TotalProfit from "../components/Dashboard/TotalProfit.vue";
 import TotalExpense from "../components/Dashboard/TotalExpense.vue";
+import GeneratedLeads from "../components/Dashboard/GeneratedLeads.vue";
 
 const apexchart = reactive({
   options: {

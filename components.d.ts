@@ -50,6 +50,7 @@ declare module 'vue' {
     ElTimePicker: typeof import('element-plus/es')['ElTimePicker']
     ElUpload: typeof import('element-plus/es')['ElUpload']
     FileUpload: typeof import('./src/components/FileUpload.vue')['default']
+    GeneratedLeads: typeof import('./src/components/Dashboard/GeneratedLeads.vue')['default']
     PageHeader: typeof import('./src/components/PageHeader.vue')['default']
     Permission: typeof import('./src/components/Permission.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
