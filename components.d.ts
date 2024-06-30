@@ -54,5 +54,7 @@ declare module 'vue' {
     Permission: typeof import('./src/components/Permission.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Statistics: typeof import('./src/components/Dashboard/Statistics.vue')['default']
+    TotalProfit: typeof import('./src/components/Dashboard/TotalProfit.vue')['default']
   }
 }

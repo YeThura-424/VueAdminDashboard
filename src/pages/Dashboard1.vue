@@ -14,90 +14,29 @@
           </div>
         </div>
       </el-card>
-      <el-card class="box-card">
-        <div class="card-title">
-          <h3 class="text-lg">Total Users</h3>
-        </div>
-        <div class="card-body flex justify-between">
-          <span>Last Week</span>
-          <p>550</p>
-        </div>
-      </el-card>
+      <div class="grid grid-cols-2 gap-7">
+        <TotalProfit />
+        <TotalProfit />
+      </div>
     </div>
     <div class="col-span-2">
-      <el-card>
-        <div class="statistics h-[140px] flex flex-col justify-between">
-          <div class="statistics-header flex justify-between items-end">
-            <h1 class="text-lg">Statistics</h1>
-            <p class="text-sm text-[#2f2b3d66]">updated 1 month ago</p>
-          </div>
-          <div class="statistics-body flex justify-between items-center">
-            <div class="statistics-sales flex gap-5 items-center">
-              <div
-                class="w-10 h-10 text-[#7367f0] bg-[#e8e6fc] flex items-center justify-center rounded-lg"
-              >
-                <IconChartPie :size="24" stroke-width="1" />
-              </div>
-              <div>
-                <h1 class="text-lg">230k</h1>
-                <span class="text-sm">Sales</span>
-              </div>
-            </div>
-            <div class="statistics-customers flex gap-5 items-center">
-              <div
-                class="w-10 h-10 text-[#00bad1] bg-[#d6f4f7] flex items-center justify-center rounded-lg"
-              >
-                <IconUsers :size="24" stroke-width="1" />
-              </div>
-              <div>
-                <h1 class="text-lg">230k</h1>
-                <span class="text-sm">Sales</span>
-              </div>
-            </div>
-            <div class="statistics-products flex gap-5 items-center">
-              <div
-                class="w-10 h-10 text-[#ff4c51] bg-[#ddd9dc] flex items-center justify-center rounded-lg"
-              >
-                <IconShoppingCart :size="24" stroke-width="1" />
-              </div>
-              <div>
-                <h1 class="text-lg">230k</h1>
-                <span class="text-sm">Sales</span>
-              </div>
-            </div>
-            <div class="statistics-revenue flex gap-5 items-center">
-              <div
-                class="w-10 h-10 text-[#28c76f] bg-[#bfd6cb] flex items-center justify-center rounded-lg"
-              >
-                <IconCurrencyDollar :size="24" stroke-width="1" />
-              </div>
-              <div>
-                <h1 class="text-lg">230k</h1>
-                <span class="text-sm">Sales</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </el-card>
-      <!-- <el-card class="box-card">
+      <Statistics />
+      <el-card class="box-card">
         <ApexChart
           :options="apexchart.options"
           :series="apexchart.series"
           type="bar"
         />
-      </el-card> -->
+      </el-card>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { reactive } from "vue";
-import {
-  IconChartPie,
-  IconUsers,
-  IconShoppingCart,
-  IconCurrencyDollar,
-} from "@tabler/icons-vue";
+
+import Statistics from "../components/Dashboard/Statistics.vue";
+import TotalProfit from "../components/Dashboard/TotalProfit.vue";
 
 const apexchart = reactive({
   options: {
