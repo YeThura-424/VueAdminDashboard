@@ -1,6 +1,8 @@
 <script setup>
 import VueApexCharts from "vue3-apexcharts";
+import { computed, ref } from "vue";
 
+const revenueYear = ref(2024);
 const series = {
   bar: [
     {
@@ -49,7 +51,7 @@ const chartOptions = computed(() => {
         curve: "smooth",
         width: 6,
         lineCap: "round",
-        colors: undefined,
+        colors: "#ddd",
       },
       legend: {
         show: true,
@@ -63,7 +65,7 @@ const chartOptions = computed(() => {
           offsetX: -3,
           offsetY: 2,
         },
-        labels: { colors: "#22fcde" },
+        labels: { colors: "#000" },
         itemMargin: { horizontal: 5 },
       },
       grid: {
@@ -100,7 +102,7 @@ const chartOptions = computed(() => {
           offsetX: -16,
           style: {
             fontSize: "14px",
-            colors: [],
+            colors: ["#000"],
             fontFamily: "Public Sans",
           },
         },
@@ -115,7 +117,7 @@ const chartOptions = computed(() => {
         },
         {
           breakpoint: 1441,
-          options: { plotOptions: { bar: { columnWidth: "52%" } } },
+          options: { plotOptions: { bar: { columnWidth: "40%" } } },
         },
         {
           breakpoint: 1280,
@@ -166,10 +168,10 @@ const chartOptions = computed(() => {
         width: [1, 2],
       },
       legend: { show: false },
-      colors: ['#7367f0'],
+      colors: ["", "#7367f0"],
       grid: {
         show: false,
-        '#90A4AE',
+        color: "#90A4AE",
         padding: {
           top: -30,
           bottom: -15,
@@ -190,66 +192,59 @@ const chartOptions = computed(() => {
 </script>
 
 <template>
-  <VCard>
-    <VRow no-gutters>
-      <VCol
-        cols="12"
-        sm="8"
-        lg="8"
-        :class="$vuetify.display.smAndUp ? 'border-e' : 'border-b'"
+  <div class="grid grid-cols-3">
+    <div class="col-span-2">
+      <div class="pe-2">
+        <h6 class="text-base">Revenue Report</h6>
+
+        <VueApexCharts
+          :options="chartOptions.bar"
+          :series="series.bar"
+          height="365"
+        />
+      </div>
+    </div>
+
+    <div class="col-span-1">
+      <div
+        class="flex flex-col justify-between items-center text-center ps-2 h-full"
       >
-        <VCardText class="pe-2">
-          <h6 class="text-h6 mb-6">Revenue Report</h6>
-
-          <VueApexCharts
-            :options="chartOptions.bar"
-            :series="series.bar"
-            height="365"
-          />
-        </VCardText>
-      </VCol>
-
-      <VCol cols="12" sm="4">
-        <VCardText
-          class="d-flex flex-column justify-center align-center text-center ps-2 h-100"
+        <el-select
+          v-model="revenueYear"
+          placeholder="Select"
+          style="width: 80px"
         >
-          <VBtn variant="outlined" size="small" class="d-flex mx-auto">
-            <span>2022</span>
-            <template #append>
-              <VIcon size="16" icon="tabler-chevron-down" />
-            </template>
-            <VMenu activator="parent">
-              <VList>
-                <VListItem
-                  v-for="(item, index) in ['2021', '2020', '2019']"
-                  :key="index"
-                  :value="index"
-                >
-                  <VListItemTitle>{{ item }}</VListItemTitle>
-                </VListItem>
-              </VList>
-            </VMenu>
-          </VBtn>
-
-          <div class="d-flex flex-column mt-6">
-            <h5 class="font-weight-semibold text-h5">$25,825</h5>
-            <p>
-              <span class="text-high-emphasis font-weight-semibold me-1"
-                >Budget:</span
-              >
-              <span>56,800</span>
-            </p>
-          </div>
-
-          <VueApexCharts
-            :options="chartOptions.line"
-            :series="series.line"
-            height="100"
+          <el-option
+            v-for="(item, index) in [
+              '2024',
+              '2023',
+              '2022',
+              '2021',
+              '2020',
+              '2019',
+            ]"
+            :key="index"
+            :label="item"
+            :value="item"
           />
+        </el-select>
 
-          <VBtn class="mt-4"> Increase Budget </VBtn>
-        </VCardText>
-      </VCol>
-    </VRow>
-  </VCard>
+        <div class="flex flex-col mt-6">
+          <h5 class="font-weight-semibold text-xl">$25,825</h5>
+          <p>
+            <span class="text-[#2f2b3de6] font-semibold me-1">Budget:</span>
+            <span>56,800</span>
+          </p>
+        </div>
+
+        <VueApexCharts
+          :options="chartOptions.line"
+          :series="series.line"
+          height="100"
+        />
+
+        <el-button type="primary" class="mt-4"> Increase Budget </el-button>
+      </div>
+    </div>
+  </div>
 </template>

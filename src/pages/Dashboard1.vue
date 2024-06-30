@@ -25,11 +25,7 @@
     <div class="col-span-2">
       <Statistics />
       <el-card class="box-card">
-        <ApexChart
-          :options="apexchart.options"
-          :series="apexchart.series"
-          type="bar"
-        />
+        <RevenueReport />
       </el-card>
     </div>
   </div>
@@ -42,6 +38,7 @@ import Statistics from "../components/Dashboard/Statistics.vue";
 import TotalProfit from "../components/Dashboard/TotalProfit.vue";
 import TotalExpense from "../components/Dashboard/TotalExpense.vue";
 import GeneratedLeads from "../components/Dashboard/GeneratedLeads.vue";
+import RevenueReport from "../components/Dashboard/RevenueReport.vue";
 
 const apexchart = reactive({
   options: {
