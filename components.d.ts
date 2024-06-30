@@ -53,6 +53,7 @@ declare module 'vue' {
     GeneratedLeads: typeof import('./src/components/Dashboard/GeneratedLeads.vue')['default']
     PageHeader: typeof import('./src/components/PageHeader.vue')['default']
     Permission: typeof import('./src/components/Permission.vue')['default']
+    RevenueReport: typeof import('./src/components/Dashboard/RevenueReport.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Statistics: typeof import('./src/components/Dashboard/Statistics.vue')['default']

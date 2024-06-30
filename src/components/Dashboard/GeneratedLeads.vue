@@ -1,6 +1,8 @@
 <script setup>
 import VueApexCharts from "vue3-apexcharts";
 import { computed } from "vue";
+import { IconChevronUp } from "@tabler/icons-vue";
+
 const series = [45, 58, 30, 50];
 
 const chartOptions = computed(() => {
@@ -10,7 +12,7 @@ const chartOptions = computed(() => {
       type: "donut",
     },
     labels: ["Electronic", "Sports", "Decor", "Fashion"],
-    colors: ["#28c76f", "#28c76fb3", "#28c76f80", "#28c76f"],
+    colors: ["#28c76f", "#28c76fb3", "#28c76f80", "#d4f4e2"],
     stroke: { width: 0 },
     dataLabels: {
       enabled: false,
@@ -70,20 +72,17 @@ const chartOptions = computed(() => {
 <template>
   <div class="box-card flex justify-between">
     <div class="flex flex-col">
-      <div class="mb-auto">
-        <h6 class="text-xl text-nowrap">Generated Leads</h6>
+      <div class="mb-8">
+        <h6 class="text-xl text-nowrap font-medium text-[#434050]">
+          Generated Leads
+        </h6>
         <span class="text-sm">Monthly Report</span>
       </div>
 
       <div>
-        <h5 class="text-h5 mb-1">4,350</h5>
-        <div class="text-sm">
-          <VIcon
-            icon="tabler-chevron-up"
-            size="24"
-            color="success"
-            class="me-1"
-          />
+        <h5 class="text-2xl mb-1">4,350</h5>
+        <div class="text-base flex text-[#28c76f]">
+          <IconChevronUp stroke="{2}" :size="20" />
           <span class="text-success font-weight-medium">15.8% </span>
         </div>
       </div>
