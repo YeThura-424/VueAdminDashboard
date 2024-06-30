@@ -16,7 +16,7 @@
       </el-card>
       <div class="grid grid-cols-2 gap-7">
         <TotalProfit />
-        <TotalProfit />
+        <TotalExpense />
       </div>
     </div>
     <div class="col-span-2">
@@ -37,6 +37,7 @@ import { reactive } from "vue";
 
 import Statistics from "../components/Dashboard/Statistics.vue";
 import TotalProfit from "../components/Dashboard/TotalProfit.vue";
+import TotalExpense from "../components/Dashboard/TotalExpense.vue";
 
 const apexchart = reactive({
   options: {

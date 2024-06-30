@@ -16,7 +16,7 @@ const chartOptions = computed(() => {
       toolbar: { show: false },
     },
     grid: {
-      borderColor: "#90A4AE",
+      borderColor: "#e6e5e7",
       strokeDashArray: 6,
       xaxis: { lines: { show: true } },
       yaxis: { lines: { show: false } },
@@ -71,11 +71,11 @@ const chartOptions = computed(() => {
 <template>
   <div class="flex justify-between">
     <el-card class="box-card">
-      <div class="profit">
-        <h1 class="text-lg text-[#434050]">Profit</h1>
-        <p class="text-sm text-[#2f2b3de6]">Last Month</p>
+      <div class="profit pb-2">
+        <h1 class="text-[18px] text-[#8b8a91]">Profit</h1>
+        <p class="text-[13px] text-[#aeadafe6]">Last Month</p>
       </div>
-      <div class="profile-chart">
+      <div class="profile-chart pb-2">
         <VueApexCharts
           type="line"
           :options="chartOptions"
@@ -83,9 +83,9 @@ const chartOptions = computed(() => {
           :height="90"
         />
       </div>
-      <div>
-        <h2 class="text-[#434050] text-[24px]">624K</h2>
-        <span class="text-[#28c76f] text-sm">+8.24%</span>
+      <div class="flex gap-1 items-center">
+        <h2 class="text-[#8b8a91] text-[24px]">624K</h2>
+        <span class="text-[#28c76f] text-[13px]">+8.24%</span>
       </div>
     </el-card>
   </div>
