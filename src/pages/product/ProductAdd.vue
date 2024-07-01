@@ -37,10 +37,14 @@
             <span>Variants</span>
           </div>
           <el-form :model="productForm" label-width="auto" label-position="top">
-            <div class="grid grid-cols-3 gap-x-5">
+            <div
+              class="grid grid-cols-3 gap-x-5"
+              v-for="(item, index) in variantsRow"
+              :key="item"
+            >
               <el-form-item label="Name">
                 <el-select
-                  v-model="productForm.variantsname"
+                  v-model="productForm.variantsname[index]"
                   placeholder="please select vendor"
                 >
                   <el-option label="Grand Royal Myanmar" value="master" />
@@ -49,9 +53,12 @@
                 </el-select>
               </el-form-item>
               <el-form-item label="Value" class="col-span-2">
-                <el-input v-model="productForm.variantsvalue" />
+                <el-input v-model="productForm.variantsvalue[index]" />
               </el-form-item>
             </div>
+            <el-button type="primary" @click="addVariants"
+              >Add Variant</el-button
+            >
           </el-form>
         </div>
       </div>
@@ -145,7 +152,7 @@
 
 <script setup lang="ts">
 import PageHeader from "../../components/PageHeader.vue";
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 import { FolderAdd, Close } from "@element-plus/icons-vue";
 import FileUpload from "../../components/FileUpload.vue";
 const productForm = reactive({
@@ -156,8 +163,8 @@ const productForm = reactive({
   bestprice: "",
   discount: "",
   inStock: false,
-  variantsname: "",
-  variantsvalue: "",
+  variantsname: [],
+  variantsvalue: [],
   vendor: "",
   category: "",
   collection: "",
@@ -186,4 +193,8 @@ const productCreateBreadcrumb = [
     routeName: "",
   },
 ];
+const variantsRow = ref(1);
+const addVariants = () => {
+  variantsRow.value++;
+};
 </script>
