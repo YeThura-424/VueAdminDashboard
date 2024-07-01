@@ -55,7 +55,7 @@ const chartOptions = computed(() => {
       },
       legend: {
         show: true,
-        horizontalAlign: "left",
+        horizontalAlign: "right",
         position: "top",
         fontFamily: "Public Sans",
         markers: {
@@ -194,8 +194,8 @@ const chartOptions = computed(() => {
 <template>
   <div class="grid grid-cols-3">
     <div class="col-span-2">
-      <div class="pe-2">
-        <h6 class="text-base">Revenue Report</h6>
+      <div class="pe-2 pb-2">
+        <h6 class="text-base -mb-8">Revenue Report</h6>
 
         <VueApexCharts
           :options="chartOptions.bar"

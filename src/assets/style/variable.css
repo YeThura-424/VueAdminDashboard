@@ -2,7 +2,7 @@
   --body-color: #ddd;
   --content-color: #fff;
   --primary-color: #7367f0;
-  --el-menu-line-height: 45px;
+  --el-menu-line-height: 40px;
 }
 :root.dark {
   --body-color: #273746;
@@ -10,6 +10,7 @@
   --content-color: #212f3c;
   --primary-color: #7367f0;
   --el-menu-title-active-color: #000;
+  --el-menu-line-height: 40px;
 }
 
 body.dark {

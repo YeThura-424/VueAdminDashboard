@@ -70,12 +70,10 @@ const chartOptions = computed(() => {
 </script>
 
 <template>
-  <div class="box-card flex justify-between">
-    <div class="flex flex-col">
-      <div class="mb-8">
-        <h6 class="text-xl text-nowrap font-medium text-[#434050]">
-          Generated Leads
-        </h6>
+  <div class="box-card flex justify-between items-start">
+    <div class="flex flex-col gap-4">
+      <div class="mb-auto">
+        <h6 class="text-xl font-medium text-[#434050]">Generated Leads</h6>
         <span class="text-sm">Monthly Report</span>
       </div>
 
@@ -91,8 +89,8 @@ const chartOptions = computed(() => {
       <VueApexCharts
         :options="chartOptions"
         :series="series"
-        :height="147"
-        :width="130"
+        :height="120"
+        :width="120"
       />
     </div>
   </div>
