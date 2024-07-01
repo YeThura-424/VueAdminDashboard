@@ -90,7 +90,7 @@ const chartOptions = computed(() => {
         labels: {
           style: {
             fontSize: "14px",
-            colors: [],
+            colors: "inherit",
             fontFamily: "Public Sans",
           },
         },
@@ -168,7 +168,7 @@ const chartOptions = computed(() => {
         width: [1, 2],
       },
       legend: { show: false },
-      colors: ["", "#7367f0"],
+      colors: ["#fff", "#7367f0"],
       grid: {
         show: false,
         color: "#90A4AE",
@@ -192,7 +192,7 @@ const chartOptions = computed(() => {
 </script>
 
 <template>
-  <div class="grid grid-cols-3">
+  <div class="grid grid-cols-3 pb-4">
     <div class="col-span-2">
       <div class="pe-2 pb-2">
         <h6 class="text-base -mb-8">Revenue Report</h6>
@@ -232,7 +232,7 @@ const chartOptions = computed(() => {
         <div class="flex flex-col mt-6">
           <h5 class="font-weight-semibold text-xl">$25,825</h5>
           <p>
-            <span class="text-[#2f2b3de6] font-semibold me-1">Budget:</span>
+            <span class="font-semibold me-1">Budget:</span>
             <span>56,800</span>
           </p>
         </div>

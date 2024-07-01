@@ -89,8 +89,8 @@ const chartOptions = computed(() => {
       <VueApexCharts
         :options="chartOptions"
         :series="series"
-        :height="120"
-        :width="120"
+        :height="128"
+        :width="125"
       />
     </div>
   </div>
