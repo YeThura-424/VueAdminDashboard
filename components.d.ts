@@ -51,6 +51,7 @@ declare module 'vue' {
     ElUpload: typeof import('element-plus/es')['ElUpload']
     FileUpload: typeof import('./src/components/FileUpload.vue')['default']
     GeneratedLeads: typeof import('./src/components/Dashboard/GeneratedLeads.vue')['default']
+    MultiSelect: typeof import('./src/components/MultiSelect.vue')['default']
     PageHeader: typeof import('./src/components/PageHeader.vue')['default']
     Permission: typeof import('./src/components/Permission.vue')['default']
     RevenueReport: typeof import('./src/components/Dashboard/RevenueReport.vue')['default']
