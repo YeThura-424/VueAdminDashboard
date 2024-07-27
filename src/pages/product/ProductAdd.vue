@@ -147,6 +147,8 @@
         >
       </div>
     </div>
+
+    <MultiSelect />
   </div>
 </template>
 
@@ -155,6 +157,7 @@ import PageHeader from "../../components/PageHeader.vue";
 import { reactive, ref } from "vue";
 import { FolderAdd, Close } from "@element-plus/icons-vue";
 import FileUpload from "../../components/FileUpload.vue";
+import MultiSelect from "../../components/MultiSelect.vue";
 const productForm = reactive({
   name: "",
   sku: "",
