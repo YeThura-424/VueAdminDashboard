@@ -2,19 +2,16 @@
   <el-menu
     :default-active="activeLink"
     class="el-menu-vertical-demo"
-    :collapse="appLayout.isCollapse"
+    :collapse="isCollapse"
   >
     <div
-      class="sidebar-header flex items-center h-12 border-b border-slate-300 px-2"
-      :class="appLayout.isCollapse ? 'justify-center' : 'justify-between'"
+      class="sidebar-header flex items-center h-12 w-full border-b border-slate-300 px-2"
+      :class="isCollapse ? 'justify-center' : 'justify-between'"
     >
-      <div class="logo" :class="{ hidden: appLayout.isCollapse }">
-        <span class="app-logo"> Vue Admin Template </span>
+      <div v-if="!isCollapse" :class="['logo']">
+        <span :class="['app-logo']"> Vue Admin Template </span>
       </div>
-      <div
-        class="toggler cursor-pointer"
-        @click="appLayout.toggleSidebar(!appLayout.isCollapse)"
-      >
+      <div class="toggler cursor-pointer" @click="toggleSidebar(!isCollapse)">
         <el-icon><Expand /></el-icon>
       </div>
     </div>
@@ -27,7 +24,7 @@
         >
       </template>
     </el-menu-item>
-    <div class="menu-group" :class="appLayout.isCollapse ? 'hidden' : ''">
+    <div class="menu-group" :class="isCollapse ? 'hidden' : ''">
       <span class="uppercase">General</span>
     </div>
     <el-sub-menu index="Product">
@@ -85,7 +82,7 @@
       </el-menu-item>
     </el-sub-menu>
 
-    <div class="menu-group" :class="appLayout.isCollapse ? 'hidden' : ''">
+    <div class="menu-group" :class="isCollapse ? 'hidden' : ''">
       <span class="uppercase">Authentication</span>
     </div>
     <el-menu-item index="RoleList">
@@ -138,8 +135,11 @@ import {
   Avatar,
 } from "@element-plus/icons-vue";
 import { useRoute } from "vue-router";
+import { storeToRefs } from "pinia";
 const router = useRoute();
 const appLayout = useAppLayoutStore();
+const { isCollapse } = storeToRefs(appLayout);
+const { toggleSidebar } = appLayout;
 const activeLink = router.name;
 
 console.log(activeLink);

@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import Sidebar from "./Sidebar.vue";
 import Header from "./Header.vue";
-import { useAppLayoutStore } from "../store/AppLayout.js";
+import { useAppLayoutStore } from "@/store/AppLayout.js";
 
 const appLayout = useAppLayoutStore();
 </script>
