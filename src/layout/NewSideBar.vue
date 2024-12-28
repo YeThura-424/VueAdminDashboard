@@ -1,6 +1,6 @@
 <template>
-  <el-button @click="toggleSidebar()"> Click </el-button>
-  {{ isCollapse }}
+  <el-button @click="toggleSidebar(!isCollapse)"> Click </el-button>
+
   <el-menu
     default-active="2"
     class="el-menu-vertical-demo"

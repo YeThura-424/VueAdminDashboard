@@ -18,8 +18,8 @@
   </div>
 </template>
 <script setup lang="ts">
-// import Sidebar from "./Sidebar.vue";
-import Sidebar from "./NewSideBar.vue";
+import Sidebar from "./Sidebar.vue";
+// import Sidebar from "./NewSideBar.vue";
 import Header from "./Header.vue";
 import { useAppLayoutStore } from "@/store/AppLayout.js";
 
