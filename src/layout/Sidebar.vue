@@ -8,7 +8,7 @@
       class="sidebar-header flex items-center h-12 w-full border-b border-slate-300 px-2"
       :class="isCollapse ? 'justify-center' : 'justify-between'"
     >
-      <div v-if="!isCollapse" :class="['logo']">
+      <div v-if="!isCollapse" :class="['logo', isCollapse ? 'hidden' : '']">
         <span :class="['app-logo']"> Vue Admin Template </span>
       </div>
       <div class="toggler cursor-pointer" @click="toggleSidebar(!isCollapse)">
@@ -25,7 +25,7 @@
       </template>
     </el-menu-item>
     <div class="menu-group" :class="isCollapse ? 'hidden' : ''">
-      <span class="uppercase">General</span>
+      <span class="text-base text-[#303133]">General</span>
     </div>
     <el-sub-menu index="Product">
       <template #title>
